@@ -10,4 +10,4 @@ L'utilisateur doit s'inscrire en fournissant un pseudo et un mot de passe afin d
 
 ![](/maquette_ecran_chat.png)
 
-L'écran de statistiques affiche le nombre d'inscrits, le nombre de messages et un graphique de l'évolution du nombre de messages par minute depuis une heure. Il est accessible via l'icône d'information en bas à gauche de l'écran.
+L'écran de statistiques affiche le nombre total d'inscrits, le nombre total de messages et un graphique de l'évolution du nombre de messages par minute depuis une heure. Il est accessible via l'icône d'information en bas à gauche de l'écran.
