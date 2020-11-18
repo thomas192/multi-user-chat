@@ -10,4 +10,4 @@ Une application de type Slack avec un salon public, un salon privé et un écran
 
 ### Ecran salon privé
 
-### Ecran de statistiques
+### Ecran statistiques
