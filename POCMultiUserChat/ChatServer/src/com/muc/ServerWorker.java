@@ -1,7 +1,6 @@
 package com.muc;
 
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.Socket;
 import java.util.Date;
 
@@ -28,13 +27,24 @@ public class ServerWorker extends Thread {
 
     /** Communicates with client via client socket */
     private void handleClientSocket() throws IOException, InterruptedException {
-        // Get output stream of socket
+        // Allows to read data from client
+        InputStream inputStream = clientSocket.getInputStream();
+        // Allows to write data for client
         OutputStream outputStream = clientSocket.getOutputStream();
-        // Simulate 10-second action
-        for (int i=0; i < 10; i++) {
-            outputStream.write(("Time now is " + new Date() + "\n").getBytes());
-            Thread.sleep(1000);
+
+        // Create buffer so we can read line by line
+        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+        String line;
+        while ( (line = reader.readLine()) != null) {
+            // Read lines until client types quit
+            if ("quit".equalsIgnoreCase(line)) {
+                break;
+            }
+            // Echo back whatever was received from client
+            String msg = "You typed: " + line + "\n";
+            outputStream.write(msg.getBytes());
         }
+
         // Close connection
         clientSocket.close();
     }
