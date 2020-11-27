@@ -1,5 +1,7 @@
 package com.muc;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.io.*;
 import java.net.Socket;
 import java.util.Date;
@@ -36,13 +38,20 @@ public class ServerWorker extends Thread {
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
         String line;
         while ( (line = reader.readLine()) != null) {
-            // Read lines until client types quit
-            if ("quit".equalsIgnoreCase(line)) {
-                break;
+            // Split line into individual tokens based on whitespace character
+            String[] tokens = StringUtils.split(line);
+            // Check if tokens is valid
+            if (tokens != null && tokens.length > 0) {
+                // Get first token of line
+                String cmd = tokens[0];
+                // Read token
+                if ("quit".equalsIgnoreCase(cmd)) {
+                    break;
+                } else {
+                    String msg = "unknown " + cmd + "\n";
+                    outputStream.write(msg.getBytes());
+                }
             }
-            // Echo back whatever was received from client
-            String msg = "You typed: " + line + "\n";
-            outputStream.write(msg.getBytes());
         }
 
         // Close connection
