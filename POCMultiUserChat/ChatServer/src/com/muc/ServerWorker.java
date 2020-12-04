@@ -60,7 +60,7 @@ public class ServerWorker extends Thread {
         // Create a buffer to read the input stream line by line
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
         String line;
-        while ( (line = reader.readLine()) != null) {
+        while ((line = reader.readLine()) != null) {
             // Split line into individual tokens based on whitespace character
             String[] tokens = StringUtils.split(line);
 
@@ -179,7 +179,7 @@ public class ServerWorker extends Thread {
             // Hard coded login
             if ((login.equals("guest") && password.equals("guest"))
                     || (login.equals("thomas") && password.equals("thomas"))) {
-                msg = "You are logged in\n";
+                msg = "Ok login\n";
                 outputStream.write(msg.getBytes());
                 this.login = login;
                 System.out.println("User logged in successfully: " + login);
@@ -208,8 +208,9 @@ public class ServerWorker extends Thread {
                 }
 
             } else {
-                msg = "error login\n";
+                msg = "Error during login\n";
                 outputStream.write(msg.getBytes());
+                System.err.println("Login failed for " + login);
             }
         }
     }
