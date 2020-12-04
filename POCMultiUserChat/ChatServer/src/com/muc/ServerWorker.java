@@ -83,8 +83,12 @@ public class ServerWorker extends Thread {
 
     /** Handles logoff */
     private void handleLogoff() throws IOException {
+        // Remove this worker from the worker list
+        server.removeWorker(this);
+
         // Get the list of all the workers connected to the server
         List<ServerWorker> workerList = server.getWorkerList();
+
         // Send other online users current user's status
         for (ServerWorker worker : workerList) {
             // Check if we are not sending our own presence
