@@ -66,11 +66,19 @@ public class ServerWorker extends Thread {
                 String cmd = tokens[0];
 
                 // Read token and do something if it's a known command
+                // Disconnection
                 if ("logoff".equals(cmd) || "quit".equalsIgnoreCase(cmd)) {
                     handleLogoff();
                     break;
+                // Connection
                 } else if ("login".equalsIgnoreCase(cmd)) {
                     handleLogin(outputStream, tokens);
+                // Message someone
+                } else if ("msg".equalsIgnoreCase(cmd)) {
+                    // Split line into 3 tokens (3rd token is the message)
+                    String[] tokensMsg = StringUtils.split(line, null, 3);
+                    handleMessage(tokensMsg);
+                // Unknown command
                 } else {
                     String msg = "unknown command " + cmd + "\n";
                     outputStream.write(msg.getBytes());
@@ -79,6 +87,24 @@ public class ServerWorker extends Thread {
         }
         // Close connection
         clientSocket.close();
+    }
+
+    /** Handles message (format: "msg" "login" body) */
+    private void handleMessage(String[] tokens) throws IOException {
+        // Message recipient
+        String sendTo = tokens[1];
+        // Message to send
+        String body = tokens[2];
+        // Get the list of all the workers connected to the server
+        List<ServerWorker> workerList = server.getWorkerList();
+        for(ServerWorker worker : workerList) {
+            // If worker matches recipient
+            if (sendTo.equalsIgnoreCase(worker.getLogin())) {
+                // Display message
+                String outMsg = login + ": " + body + "\n";
+                worker.send(outMsg);
+            }
+        }
     }
 
     /** Handles logoff */
