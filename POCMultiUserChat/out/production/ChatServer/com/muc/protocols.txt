@@ -20,6 +20,8 @@ Commands:
 
     msg <user> body
 
-    #topic <-- chatroom / group chat
+    #topic <-- group chat
     join #topic
-    msg #topic body
+    leave #topic
+    send: msg #topic body
+    receive: msg #topic:<login> body

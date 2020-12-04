@@ -26,7 +26,7 @@ public class ServerWorker extends Thread {
     /** Stores the membership of the user to a topic */
     private HashSet<String> topicSet = new HashSet<>();
 
-    /** Constructor of server worker class */
+    /** Constructor of the server worker class */
     public ServerWorker(Server server, Socket clientSocket) {
         this.server = server;
         this.clientSocket = clientSocket;
