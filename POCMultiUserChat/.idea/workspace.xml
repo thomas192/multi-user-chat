@@ -29,6 +29,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -44,6 +45,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="extract.method.default.visibility" value="private" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/ChatClient/src/com/muc" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../../Program Files/Java/commons-lang3-3.11" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -111,6 +113,10 @@
       <screen x="1920" y="0" width="1280" height="720" />
     </state>
     <state x="2041" y="0" key="#Project_Structure/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1606491418000" />
+    <state x="2291" y="108" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1607108862902">
+      <screen x="1920" y="0" width="1280" height="720" />
+    </state>
+    <state x="2291" y="108" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1607108862902" />
     <state x="2358" y="236" key="DetectedRootsChooserDialog" timestamp="1606491382208">
       <screen x="1920" y="0" width="1280" height="720" />
     </state>
@@ -119,26 +125,30 @@
       <screen x="1920" y="0" width="1280" height="720" />
     </state>
     <state x="2268" y="102" key="FileChooserDialogImpl/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1606491379218" />
-    <state width="1237" height="176" key="GridCell.Tab.0.bottom" timestamp="1607107399582">
+    <state width="1237" height="176" key="GridCell.Tab.0.bottom" timestamp="1607113740463">
       <screen x="1920" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="176" key="GridCell.Tab.0.bottom/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1607107399582" />
-    <state width="1237" height="176" key="GridCell.Tab.0.center" timestamp="1607107399582">
+    <state width="1237" height="176" key="GridCell.Tab.0.bottom/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1607113740463" />
+    <state width="1237" height="176" key="GridCell.Tab.0.center" timestamp="1607113740463">
       <screen x="1920" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="176" key="GridCell.Tab.0.center/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1607107399582" />
-    <state width="1237" height="176" key="GridCell.Tab.0.left" timestamp="1607107399582">
+    <state width="1237" height="176" key="GridCell.Tab.0.center/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1607113740463" />
+    <state width="1237" height="176" key="GridCell.Tab.0.left" timestamp="1607113740463">
       <screen x="1920" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="176" key="GridCell.Tab.0.left/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1607107399582" />
-    <state width="1237" height="176" key="GridCell.Tab.0.right" timestamp="1607107399582">
+    <state width="1237" height="176" key="GridCell.Tab.0.left/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1607113740463" />
+    <state width="1237" height="176" key="GridCell.Tab.0.right" timestamp="1607113740463">
       <screen x="1920" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="176" key="GridCell.Tab.0.right/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1607107399582" />
+    <state width="1237" height="176" key="GridCell.Tab.0.right/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1607113740463" />
     <state x="2041" y="0" key="SettingsEditor" timestamp="1606491663288">
       <screen x="1920" y="0" width="1280" height="720" />
     </state>
     <state x="2041" y="0" key="SettingsEditor/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1606491663288" />
+    <state x="2372" y="139" key="chooseDestDirectoryDialog" timestamp="1607111672569">
+      <screen x="1920" y="0" width="1280" height="720" />
+    </state>
+    <state x="2372" y="139" key="chooseDestDirectoryDialog/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1607111672569" />
     <state x="2291" y="122" key="extract.method.dialog" timestamp="1606484064362">
       <screen x="1920" y="0" width="1280" height="720" />
     </state>

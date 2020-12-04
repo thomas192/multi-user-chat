@@ -11,16 +11,16 @@ import java.util.List;
 public class ServerWorker extends Thread {
 
 
-    /** Server instance that we can pass to each server worker */
+    /** The server instance that we can pass to each server worker */
     private final Server server;
 
     /** Client socket */
     private final Socket clientSocket;
 
-    /** Stores the output stream of the client socket which allows us to write data for the client */
+    /** The output stream of the client socket which allows us to write data for the client */
     private OutputStream outputStream;
 
-    /** Stores the login of the server worker */
+    /** Login of the server worker */
     private String login = null;
 
     /** Stores the membership of the user to a topic */
@@ -63,7 +63,6 @@ public class ServerWorker extends Thread {
         while ((line = reader.readLine()) != null) {
             // Split line into individual tokens based on whitespace character
             String[] tokens = StringUtils.split(line);
-
             // Check if the tokens list is valid
             if (tokens != null && tokens.length > 0) {
                 // Get first token of line
@@ -111,6 +110,7 @@ public class ServerWorker extends Thread {
         return topicSet.contains(topic);
     }
 
+    /** Handles join command */
     private void handleJoin(String[] tokens) {
         if (tokens.length > 1) {
             String topic = tokens[1];
@@ -119,7 +119,7 @@ public class ServerWorker extends Thread {
         }
     }
 
-    /** Handles message
+    /** Handles message command
      * format: "msg" "login" body
      * format: "msg" "#topic" body */
     private void handleMessage(String[] tokens) throws IOException {
@@ -132,24 +132,25 @@ public class ServerWorker extends Thread {
         // Get the list of all the workers connected to the server
         List<ServerWorker> workerList = server.getWorkerList();
         for(ServerWorker worker : workerList) {
+            // Check if message recipient is a topic
             if (isTopic) {
                 // Check if user is subscribed to the topic
                 if (worker.isMemberOfTopic(sendTo)) {
-                    String outMsg = sendTo + ":" + login + ": " + body + "\n";
+                    String outMsg = "msg " + sendTo + ":" + login + " " + body + "\n";
                     worker.send(outMsg);
                 }
             } else {
                 // If worker matches recipient
                 if (sendTo.equalsIgnoreCase(worker.getLogin())) {
                     // Display message
-                    String outMsg = login + ": " + body + "\n";
+                    String outMsg = "msg " + login + " " + body + "\n";
                     worker.send(outMsg);
                 }
             }
         }
     }
 
-    /** Handles logoff */
+    /** Handles logoff command */
     private void handleLogoff() throws IOException {
         // Remove this worker from the worker list
         server.removeWorker(this);
@@ -161,7 +162,7 @@ public class ServerWorker extends Thread {
         for (ServerWorker worker : workerList) {
             // Check if we are not sending our own presence
             if (!login.equals(worker.getLogin())) {
-                String msg = login + " is offline\n";
+                String msg = "offline " + worker.getLogin() + "\n";
                 worker.send(msg);
             }
         }
@@ -192,7 +193,7 @@ public class ServerWorker extends Thread {
                     // Check if we are not sending presence of not connected users yet
                     if (worker.getLogin() != null) {
                         if (!login.equals(worker.getLogin())) {
-                            msg = worker.getLogin() + " is online\n";
+                            msg = "online " + worker.getLogin() + "\n";
                             send(msg);
                         }
                     }
@@ -202,13 +203,13 @@ public class ServerWorker extends Thread {
                 for (ServerWorker worker : workerList) {
                     // Check if we are not sending our own presence
                     if (!login.equals(worker.getLogin())) {
-                        msg = login + " is online\n";
+                        msg = "online " + login + "\n";
                         worker.send(msg);
                     }
                 }
 
             } else {
-                msg = "Error during login\n";
+                msg = "Error login\n";
                 outputStream.write(msg.getBytes());
                 System.err.println("Login failed for " + login);
             }
