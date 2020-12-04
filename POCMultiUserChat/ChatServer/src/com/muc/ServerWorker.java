@@ -66,7 +66,8 @@ public class ServerWorker extends Thread {
                 String cmd = tokens[0];
 
                 // Read token and do something if it's a known command
-                if ("quit".equalsIgnoreCase(cmd)) {
+                if ("logoff".equals(cmd) || "quit".equalsIgnoreCase(cmd)) {
+                    handleLogoff();
                     break;
                 } else if ("login".equalsIgnoreCase(cmd)) {
                     handleLogin(outputStream, tokens);
@@ -77,6 +78,21 @@ public class ServerWorker extends Thread {
             }
         }
         // Close connection
+        clientSocket.close();
+    }
+
+    /** Handles logoff */
+    private void handleLogoff() throws IOException {
+        // Get the list of all the workers connected to the server
+        List<ServerWorker> workerList = server.getWorkerList();
+        // Send other online users current user's status
+        for (ServerWorker worker : workerList) {
+            // Check if we are not sending our own presence
+            if (!login.equals(worker.getLogin())) {
+                String msg = login + " is offline\n";
+                worker.send(msg);
+            }
+        }
         clientSocket.close();
     }
 
