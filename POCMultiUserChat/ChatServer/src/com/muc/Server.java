@@ -13,7 +13,7 @@ public class Server extends Thread {
     /** The server port to listen to */
     private final int serverPort;
 
-    /** List that stores the instantiated workers */
+    /** Stores the instantiated workers */
     private ArrayList<ServerWorker> workerList = new ArrayList<>();
 
     public Server(int serverPort) {
@@ -48,5 +48,10 @@ public class Server extends Thread {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    /** Removes a worker from the worker list  */
+    public void removeWorker(ServerWorker serverWorker) {
+        workerList.remove(serverWorker);
     }
 }
