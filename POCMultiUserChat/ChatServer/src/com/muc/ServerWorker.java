@@ -4,6 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.io.*;
 import java.net.Socket;
+import java.sql.SQLOutput;
 import java.util.HashSet;
 import java.util.List;
 
@@ -159,10 +160,10 @@ public class ServerWorker extends Thread {
         List<ServerWorker> workerList = server.getWorkerList();
 
         // Send other online users current user's status
+        String msg = "offline " + login + "\n";
         for (ServerWorker worker : workerList) {
             // Check if we are not sending our own presence
             if (!login.equals(worker.getLogin())) {
-                String msg = "offline " + worker.getLogin() + "\n";
                 worker.send(msg);
             }
         }
@@ -180,10 +181,10 @@ public class ServerWorker extends Thread {
             // Hard coded login
             if ((login.equals("guest") && password.equals("guest"))
                     || (login.equals("thomas") && password.equals("thomas"))) {
-                msg = "Ok login\n";
+                msg = "ok login\n";
                 outputStream.write(msg.getBytes());
                 this.login = login;
-                System.out.println("User logged in successfully: " + login);
+                System.out.println("online " + login);
 
                 // Get the list of all the workers connected to the server
                 List<ServerWorker> workerList = server.getWorkerList();
@@ -211,7 +212,7 @@ public class ServerWorker extends Thread {
             } else {
                 msg = "Error login\n";
                 outputStream.write(msg.getBytes());
-                System.err.println("Login failed for " + login);
+                System.err.println("error " + login);
             }
         }
     }

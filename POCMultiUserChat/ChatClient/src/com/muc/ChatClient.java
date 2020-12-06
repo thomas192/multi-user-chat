@@ -25,8 +25,10 @@ public class ChatClient {
     /** Buffer that is used to read the server output stream */
     private BufferedReader bufferedIn;
 
-    /** Stores the user listeners of this chat client */
+    /** Stores the user status listeners of this chat client */
     private ArrayList<UserStatusListener> userStatusListeners = new ArrayList<>();
+
+    private ArrayList<MessageListener> messageListeners = new ArrayList<>();
 
     /** Constructor of the server client class */
     public ChatClient(String serverName, int serverPort) {
@@ -48,6 +50,12 @@ public class ChatClient {
                 System.out.println("OFFLINE: " + login);
             }
         });
+        client.addMessageListener(new MessageListener() {
+            @Override
+            public void onMessage(String fromLogin, String msgBody) {
+                System.out.println("You got a message from " + fromLogin + ": " + msgBody);
+            }
+        });
 
         // Connect client instance to the server
         if (!client.connect()) {
@@ -57,12 +65,19 @@ public class ChatClient {
             // Connect user
             if (client.login("guest", "guest")) {
                 System.out.println("Login successful");
+
+                client.msg("thomas", "Hello World!");
             } else {
                 System.err.println("Login failed");
             }
             
-            client.logoff();
+            // client.logoff();
         }
+    }
+
+    private void msg(String sendTo, String msgBody) throws IOException {
+        String cmd = "msg " + sendTo + " " + msgBody + "\n";
+        serverOut.write(cmd.getBytes());
     }
 
     /** Logs the user by sending login command to the server */
@@ -121,6 +136,10 @@ public class ChatClient {
                     // Offline presence message
                     } else if ("offline".equalsIgnoreCase(cmd)) {
                         handleOffline(tokens);
+                    // Message received
+                    } else if ("msg".equalsIgnoreCase(cmd)) {
+                        String [] tokensMsg = StringUtils.split(line, null, 3);
+                        handleMessage(tokensMsg);
                     }
                 }
             }
@@ -135,11 +154,20 @@ public class ChatClient {
         }
     }
 
+    /** Handles received messages
+     *  format: "msg" login msgBody */
+    private void handleMessage(String[] tokensMsg) {
+        String login = tokensMsg[1];
+        String msgBody = tokensMsg[2];
+        for (MessageListener listener : messageListeners) {
+            listener.onMessage(login, msgBody);
+        }
+    }
+
     /** Handles the offline presence message
      *  format: "offline" login */
     private void handleOffline(String[] tokens) {
         String login = tokens[1];
-        // Call the offline method of all the registered user status listeners
         for (UserStatusListener listener : userStatusListeners) {
             listener.offline(login);
         }
@@ -149,7 +177,6 @@ public class ChatClient {
      * format: "online" login */
     private void handleOnline(String[] tokens) {
         String login = tokens[1];
-        // Call the online method of all the registered user status listeners
         for (UserStatusListener listener : userStatusListeners) {
             listener.online(login);
         }
@@ -173,13 +200,19 @@ public class ChatClient {
         return false;
     }
 
-    /** Registers a listener to this chat client */
     public void addUserStatusListener(UserStatusListener listener) {
         userStatusListeners.add(listener);
     }
 
-    /** Removes a listener from this chat client */
     public void removeUserStatusListener(UserStatusListener listener) {
         userStatusListeners.remove(listener);
+    }
+
+    public void addMessageListener(MessageListener listener) {
+        messageListeners.add(listener);
+    }
+
+    public void removeMessageListener(MessageListener listener) {
+        messageListeners.remove(listener);
     }
 }
