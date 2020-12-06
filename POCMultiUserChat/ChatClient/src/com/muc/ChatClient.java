@@ -75,13 +75,13 @@ public class ChatClient {
         }
     }
 
-    private void msg(String sendTo, String msgBody) throws IOException {
+    public void msg(String sendTo, String msgBody) throws IOException {
         String cmd = "msg " + sendTo + " " + msgBody + "\n";
         serverOut.write(cmd.getBytes());
     }
 
     /** Logs the user by sending login command to the server */
-    private boolean login(String login, String password) throws IOException {
+    public boolean login(String login, String password) throws IOException {
         // Send login command to server
         String cmd = "login " + login + " " + password + "\n";
         serverOut.write(cmd.getBytes());
@@ -98,7 +98,7 @@ public class ChatClient {
     }
 
     /** Logs the user off by sending login command to the server */
-    private void logoff() throws IOException {
+    public void logoff() throws IOException {
         // Send logoff command to server
         String cmd = "logoff\n";
         serverOut.write(cmd.getBytes());
@@ -183,7 +183,7 @@ public class ChatClient {
     }
 
     /** Establishes the connection to the server */
-    private boolean connect() {
+    public boolean connect() {
         try {
             // Create socket
             this.socket = new Socket(serverName, serverPort);
