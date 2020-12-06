@@ -49,6 +49,7 @@ public class UserListPane extends JPanel implements UserStatusListener {
             }
         });
 
+        /*
         // Check if connection to server is successful
         if (client.connect()) {
             try {
@@ -57,6 +58,7 @@ public class UserListPane extends JPanel implements UserStatusListener {
                 e.printStackTrace();
             }
         }
+        */
     }
 
     public static void main(String[] args) {
@@ -65,8 +67,9 @@ public class UserListPane extends JPanel implements UserStatusListener {
         UserListPane userListPane = new UserListPane(client);
         // Create window
         JFrame frame = new JFrame("User List");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(400, 600);
+        // Set behavior on close
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // Add the user list pane as the main component
         frame.getContentPane().add(userListPane, BorderLayout.CENTER);
         frame.setVisible(true);
