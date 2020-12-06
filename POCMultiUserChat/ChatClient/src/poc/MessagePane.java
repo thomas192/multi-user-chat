@@ -1,4 +1,4 @@
-package com.muc;
+package poc;
 
 import javax.swing.*;
 import java.awt.*;

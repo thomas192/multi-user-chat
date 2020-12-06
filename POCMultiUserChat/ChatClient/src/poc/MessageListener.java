@@ -1,4 +1,4 @@
-package com.muc;
+package poc;
 
 public interface MessageListener {
     public void onMessage(String fromLogin, String msgBody);

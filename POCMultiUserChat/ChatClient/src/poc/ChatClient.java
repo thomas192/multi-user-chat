@@ -1,4 +1,4 @@
-package com.muc;
+package poc;
 
 import org.apache.commons.lang3.StringUtils;
 

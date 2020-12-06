@@ -1,4 +1,4 @@
-package com.muc;
+package poc;
 
 public interface UserStatusListener {
     /** Notifies when a user comes online */

@@ -1,4 +1,4 @@
-package com.muc;
+package poc;
 
 import java.io.IOException;
 import java.net.ServerSocket;

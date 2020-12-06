@@ -1,4 +1,4 @@
-package com.muc;
+package poc;
 
 public class ServerMain {
     public static void main(String[] args) {
