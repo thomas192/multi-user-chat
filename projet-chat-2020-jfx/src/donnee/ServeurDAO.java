@@ -23,7 +23,7 @@ public class ServeurDAO {
 	{
 		//TODO Envoyer demande liste message de "serveur"
 		Random rand = new Random();
-		int j = rand.nextInt(30);
+		int j = 1 + rand.nextInt(30);
 		String qui[] = {"Lucas", "Yann", "Thomas"};
 		String randomWords[] = {"chair","name","pottery","center","fit","major","fraction","monster","cabin","dome","squash","estate","world","champagne","drag","shareholder","breakfast","magnetic","total","trunk","pipe","tactic","democratic","curtain","area","tune","residence","literature","output","random","constituency","dominate","dull","absolute","resist","cancel","hill","sticky","spy","diamond","lick","spider","asset","exception","confuse","mind","foot","flush","tournament","knife"};
 
@@ -57,5 +57,22 @@ public class ServeurDAO {
 
 	public void envoyerMessage(Message_Modele messageEnvoye, String serveur) {
 		// TODO Envoyer message a BDD
+	}
+
+	public List<String> requestUtilisateursEnLigne() {
+		//TODO Envoyer demande liste d'utilisateurs en ligne a BDD
+		List<String> listeUtilisateursEnLigne = new ArrayList<>();
+		listeUtilisateursEnLigne.add("Yann");
+		listeUtilisateursEnLigne.add("Thomas");
+		listeUtilisateursEnLigne.add("Lucas");
+		listeUtilisateursEnLigne.add("Pierre-Alexis");
+		listeUtilisateursEnLigne.add("Jonathan");
+		listeUtilisateursEnLigne.add("Vincent");
+		listeUtilisateursEnLigne.add("Maxence");
+		listeUtilisateursEnLigne.add("Nicolas");
+		listeUtilisateursEnLigne.add("Christophe");
+		listeUtilisateursEnLigne.add("Charles");
+
+		return listeUtilisateursEnLigne;
 	}
 }
