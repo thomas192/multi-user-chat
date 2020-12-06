@@ -9,17 +9,21 @@ import donnee.ServeurDAO;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import javafx.stage.Popup;
 import modele.Message_Modele;
 
 
@@ -46,6 +50,33 @@ public class VueAccueil extends Vue {
 		Button actionEnvoyerMessage = (Button) lookup("#BT-envoyer");
 		TextArea contenuMessage = (TextArea) lookup("#TA-message-envoyer");
 		TabPane tab = (TabPane) lookup("#gestionnaire-tab");
+		BorderPane bp = (BorderPane) lookup("#BP-principale");
+		//###############################################################################################//
+		
+		//######################### AJOUT DE LA FENETRE UTILISATEURS EN LIGNES ##########################//
+		ScrollPane scrollPane_Right = new ScrollPane();
+		scrollPane_Right.setMinWidth(250);
+		VBox verticalBox_SPR = new VBox();
+		scrollPane_Right.setContent(verticalBox_SPR);
+		TextField titre = new TextField();
+		titre.setText("Utilisateurs en ligne :");
+		titre.setStyle("-fx-font-size: 20 ; -fx-text-fill: BLACK ; -fx-background-color: RED");
+		titre.setEditable(false);
+		titre.setAlignment(Pos.CENTER);
+		verticalBox_SPR.getChildren().add(titre);
+		bp.setRight(scrollPane_Right);
+		//###############################################################################################//
+		
+		//############################ AFFICHAGE DES UTILISATEURS EN LIGNES #############################//
+		List<String> listeUtilisateurs = serveur.requestUtilisateursEnLigne();
+		for(int i = 0 ; i < listeUtilisateurs.size() ; i ++)
+		{
+			TextField utilisateur = new TextField(listeUtilisateurs.get(i));
+			utilisateur.setEditable(false);
+			utilisateur.setStyle("-fx-font-size: 20 ; -fx-text-fill: BLACK");
+			utilisateur.setAlignment(Pos.CENTER);
+			verticalBox_SPR.getChildren().add(utilisateur);
+		}
 		//###############################################################################################//
 
 		//################################ INITIALISATION LISTE SERVEURS ################################//

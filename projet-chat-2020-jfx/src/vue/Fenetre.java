@@ -8,7 +8,7 @@ public class Fenetre extends Navigateur {
 
 	@Override
 	public void start(Stage stade) throws Exception {
-		stade.getIcons().add(new Image("file:50650.png"));
+		stade.getIcons().add(new Image("file:iconeChat.png"));
 		stade.setTitle("Incroyable application de Chat, 100% fonctionnelle");
 		stade.setScene(VueAccueil.getInstance());
 		
