@@ -4,22 +4,22 @@ import java.sql.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class DAO {
+public class ServerDAO {
     private final Connection connection;
 
-    public DAO() {
+    public ServerDAO() {
         this.connection = Database.getInstance().getConnection();
     }
 
     public static void main(String[] args) {
-        DAO dao = new DAO();
-        HashSet<String> res = dao.getTopicsFollowed("thomas");
+        ServerDAO serverDao = new ServerDAO();
+        HashSet<String> res = serverDao.getTopicsFollowed("thomas");
         System.out.println(res);
 
         res.add("ete");
-        dao.updateTopicsFollowed("thomas", res);
+        serverDao.updateTopicsFollowed("thomas", res);
 
-        res = dao.getTopicsFollowed("thomas");
+        res = serverDao.getTopicsFollowed("thomas");
         System.out.println(res);
     }
 
@@ -41,16 +41,19 @@ public class DAO {
     }
 
     public HashSet<String> getTopicsFollowed(String login) {
-        HashSet<String> topicsFollowed = null;
+        HashSet<String> topicsFollowed = new HashSet<>();
         try {
             PreparedStatement query = connection.prepareStatement("SELECT topics FROM topicsfollowed WHERE login = ?");
             query.setString(1, login);
 
             ResultSet rs = query.executeQuery();
-            rs.next();
-            Array a = rs.getArray("topics");
 
-            topicsFollowed = Arrays.stream((String[]) a.getArray()).collect(Collectors.toCollection(HashSet::new));
+            if (rs.next()) {
+                Array a = rs.getArray("topics");
+                if (a != null) {
+                    topicsFollowed = Arrays.stream((String[]) a.getArray()).collect(Collectors.toCollection(HashSet::new));
+                }
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();
