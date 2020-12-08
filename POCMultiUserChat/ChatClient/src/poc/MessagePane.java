@@ -12,14 +12,14 @@ public class MessagePane extends JPanel implements MessageListener {
     private final ChatClient client;
 
     /** List model of conversation's messages */
-    private DefaultListModel<String> listModel = new DefaultListModel<>();
+    private DefaultListModel<String> messageListModel = new DefaultListModel<>();
     /** Stores the messages of the current conversation */
-    private JList<String> messageList = new JList<>(listModel);
+    private JList<String> messageList = new JList<>(messageListModel);
 
     /** Input field for messages */
     private JTextField messageField = new JTextField();
 
-    /** Login of user chat client is going to send messages to */
+    /** Login of user the chat client is going to send messages to */
     private final String login;
 
     public MessagePane(ChatClient client, String login) {
@@ -30,11 +30,10 @@ public class MessagePane extends JPanel implements MessageListener {
         client.addMessageListener(this);
 
         setLayout(new BorderLayout());
-        // Add the message list UI as the center component
         add(new JScrollPane(messageList), BorderLayout.CENTER);
-        // Add the message field as the bottom component
         add(messageField, BorderLayout.SOUTH);
-        // Listener of the message field
+
+        // Message sent
         messageField.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -44,7 +43,7 @@ public class MessagePane extends JPanel implements MessageListener {
                     // Send the message using client API
                     client.msg(login, message);
                     // Add the message to the conversation
-                    listModel.addElement("You: " + message);
+                    messageListModel.addElement("You: " + message);
                     // Reset text field
                     messageField.setText("");
                 } catch (IOException ioException) {
@@ -60,7 +59,7 @@ public class MessagePane extends JPanel implements MessageListener {
         if (login.equalsIgnoreCase(fromLogin)) {
             // Add received message to the conversation
             String message = fromLogin + ": " + msgBody;
-            listModel.addElement(message);
+            messageListModel.addElement(message);
         }
     }
 }

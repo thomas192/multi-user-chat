@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class LoginWindow extends JFrame {
 
-    /** Instance of client API so that we can login */
+    /** Instance of the client API so that we can login */
     private final ChatClient client;
 
     /** Input field for login */
@@ -45,7 +45,6 @@ public class LoginWindow extends JFrame {
                 doLogin();
             }
         });
-        // Add the panel as the center component
         getContentPane().add(p, BorderLayout.CENTER);
         // Resize window to fit all the different components
         pack();
