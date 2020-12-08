@@ -1,7 +1,5 @@
 package poc;
 
-import com.sun.security.ntlm.Client;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -31,8 +29,11 @@ public class UserListPane extends JPanel implements UserStatusListener, TopicLis
     /** List model of topics */
     private DefaultListModel<String> topicListModel;
 
-    /** Input field for topic */
+    /** Topic field */
     private JTextField topicField = new JTextField();
+
+    /** Unfollow button */
+    private JButton unfollowButton = new JButton("Unfollow");
 
     public UserListPane(ChatClient client) {
         this.client = client;
@@ -61,6 +62,7 @@ public class UserListPane extends JPanel implements UserStatusListener, TopicLis
         p3.setLayout(new BorderLayout());
         p3.add(new JScrollPane(topicList), BorderLayout.CENTER);
         p3.add(p2, BorderLayout.NORTH);
+        p3.add(unfollowButton, BorderLayout.SOUTH);
 
         setLayout(new GridLayout(1,2));
         add(p1);
@@ -71,15 +73,15 @@ public class UserListPane extends JPanel implements UserStatusListener, TopicLis
             topicListModel.addElement(topic);
         }
 
-        // When topic added
+        // Topic added
         topicField.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    // Get the topic
+                    // Get topic
                     String topic = topicField.getText();
                     if (!topic.equals("")) {
-                        // Add the topic using the client API
+                        // Add topic
                         client.join(topic);
                         // Reset field
                         topicField.setText("");
@@ -90,7 +92,7 @@ public class UserListPane extends JPanel implements UserStatusListener, TopicLis
             }
         });
 
-        // When click on a topic
+        // Click on a topic
         topicList.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -113,7 +115,7 @@ public class UserListPane extends JPanel implements UserStatusListener, TopicLis
             }
         });
 
-        // When click on a connected user
+        // Click on a connected user
         userList.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -131,6 +133,23 @@ public class UserListPane extends JPanel implements UserStatusListener, TopicLis
                         // Add the message pane as the center component
                         f.getContentPane().add(messagePane, BorderLayout.CENTER);
                         f.setVisible(true);
+                    }
+                }
+            }
+        });
+
+        // Unfollow button is clicked
+        unfollowButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Get selected topic
+                String topic = topicList.getSelectedValue();
+                if (topic != null) {
+                    try {
+                        // Leave topic
+                        client.leave(topic);
+                    } catch (IOException ioException) {
+                        ioException.printStackTrace();
                     }
                 }
             }

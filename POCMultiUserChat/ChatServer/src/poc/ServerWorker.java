@@ -85,7 +85,7 @@ public class ServerWorker extends Thread {
                     // Join topic
                 } else if ("join".equalsIgnoreCase(cmd)) {
                     handleJoin(tokens);
-                // Leave topic
+                    // Leave topic
                 } else if ("leave".equalsIgnoreCase((cmd))) {
                     handleLeave(tokens);
                 // Unknown command
@@ -102,6 +102,7 @@ public class ServerWorker extends Thread {
     private void handleLeave(String[] tokens) throws IOException {
         if (tokens.length > 1) {
             String topic = tokens[1];
+            System.out.println(topic);
             // This connection has joined this topic
             topicsFollowed.remove(topic);
             // Update database

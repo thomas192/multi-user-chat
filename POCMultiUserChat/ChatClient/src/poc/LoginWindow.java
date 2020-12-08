@@ -38,7 +38,7 @@ public class LoginWindow extends JFrame {
         p.add(loginField);
         p.add(passwordField);
         p.add(loginButton);
-        // When login button is pressed
+        // Login button is clicked
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

@@ -100,7 +100,7 @@ public class ChatClient {
 
     /** Makes the user leave a topic */
     public void leave(String topic) throws IOException {
-        String cmd = "leave #" + topic + "\n";
+        String cmd = "leave " + topic + "\n";
         serverOut.write(cmd.getBytes());
     }
 
