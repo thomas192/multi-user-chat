@@ -155,6 +155,8 @@ public class ServerWorker extends Thread {
         // Remove this worker from the worker list
         server.removeWorker(this);
 
+        System.out.println("offline " + login);
+
         // Get the list of all the workers connected to the server
         List<ServerWorker> workerList = server.getWorkerList();
 

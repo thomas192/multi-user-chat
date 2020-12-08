@@ -27,7 +27,7 @@ public class UserListPane extends JPanel implements UserStatusListener {
         setLayout(new BorderLayout());
         add(new JScrollPane(userListUI), BorderLayout.CENTER);
 
-        // Listener of the connected users list
+        // When connected user clicked
         userListUI.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -47,31 +47,6 @@ public class UserListPane extends JPanel implements UserStatusListener {
                 }
             }
         });
-
-        /*
-        // Check if connection to server is successful
-        if (client.connect()) {
-            try {
-                client.login("guest", "guest");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        */
-    }
-
-    public static void main(String[] args) {
-        ChatClient client = new ChatClient("localhost", 8818);
-        // Create user pane that takes the client
-        UserListPane userListPane = new UserListPane(client);
-        // Create window
-        JFrame frame = new JFrame("User List");
-        frame.setSize(400, 600);
-        // Set behavior on close
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        // Add the user list pane as the main component
-        frame.getContentPane().add(userListPane, BorderLayout.CENTER);
-        frame.setVisible(true);
     }
 
     @Override

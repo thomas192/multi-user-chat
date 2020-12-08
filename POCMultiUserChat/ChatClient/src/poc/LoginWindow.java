@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.IOException;
 
 public class LoginWindow extends JFrame {
@@ -59,15 +61,27 @@ public class LoginWindow extends JFrame {
                 // Bring up the user list window
                 // Create user pane that takes the client
                 UserListPane userListPane = new UserListPane(client);
-                // Create window
-                JFrame frame = new JFrame("User List");
-                frame.setSize(400, 600);
+                // Create the user list window
+                JFrame userListWindow = new JFrame("User List");
+                userListWindow.setSize(400, 600);
                 // Set behavior on close
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                userListWindow.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+                userListWindow.addWindowListener(new WindowAdapter() {
+                    @Override
+                    public void windowClosing(WindowEvent e) {
+                        try {
+                            client.logoff();
+                            userListWindow.dispose();
+                            System.exit(0);
+                        } catch (IOException ioException) {
+                            ioException.printStackTrace();
+                        }
+                    }
+                });
                 // Add the user list pane as the main component
-                frame.getContentPane().add(userListPane, BorderLayout.CENTER);
-                frame.setVisible(true);
-                // Remove login window
+                userListWindow.getContentPane().add(userListPane, BorderLayout.CENTER);
+                userListWindow.setVisible(true);
+                // Remove the login window
                 setVisible(false);
             } else {
                 // Show error message

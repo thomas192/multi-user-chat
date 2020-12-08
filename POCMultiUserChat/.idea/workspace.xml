@@ -51,8 +51,8 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
-  <component name="RunManager" selected="Application.LoginWindow (1)">
-    <configuration name="LoginWindow (1)" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.LoginWindow">
+    <configuration name="LoginWindow" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="poc.LoginWindow" />
       <module name="ChatClient" />
       <extension name="coverage">
@@ -65,20 +65,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginWindow" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.muc.LoginWindow" />
-      <module name="ChatClient" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.muc.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ServerMain (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="ServerMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="poc.ServerMain" />
       <module name="ChatServer" />
       <extension name="coverage">
@@ -91,46 +78,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ServerMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.muc.ServerMain" />
-      <module name="ChatServer" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.muc.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserListPane" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.muc.UserListPane" />
-      <module name="ChatClient" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.muc.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
-      <item itemvalue="Application.LoginWindow" />
       <item itemvalue="Application.ServerMain" />
-      <item itemvalue="Application.UserListPane" />
-      <item itemvalue="Application.ServerMain (1)" />
-      <item itemvalue="Application.LoginWindow (1)" />
+      <item itemvalue="Application.LoginWindow" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.LoginWindow (1)" />
-        <item itemvalue="Application.ServerMain (1)" />
-        <item itemvalue="Application.ServerMain" />
         <item itemvalue="Application.LoginWindow" />
-        <item itemvalue="Application.UserListPane" />
+        <item itemvalue="Application.ServerMain" />
       </list>
     </recent_temporary>
   </component>
@@ -162,14 +117,14 @@
       <screen x="1920" y="0" width="1280" height="720" />
     </state>
     <state x="2041" y="0" key="#Project_Structure/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1606491418000" />
-    <state x="2016" y="0" width="1089" height="720" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607294238091">
+    <state x="2016" y="0" width="1089" height="720" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607416577741">
       <screen x="1920" y="0" width="1280" height="720" />
     </state>
-    <state x="2016" y="0" width="1089" height="720" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1607294238091" />
-    <state x="2366" y="67" key="#com.intellij.ide.util.MemberChooser" timestamp="1607288345212">
+    <state x="2016" y="0" width="1089" height="720" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1607416577741" />
+    <state x="2366" y="67" key="#com.intellij.ide.util.MemberChooser" timestamp="1607416922531">
       <screen x="1920" y="0" width="1280" height="720" />
     </state>
-    <state x="2366" y="67" key="#com.intellij.ide.util.MemberChooser/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1607288345212" />
+    <state x="2366" y="67" key="#com.intellij.ide.util.MemberChooser/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1607416922531" />
     <state x="2291" y="108" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1607108862902">
       <screen x="1920" y="0" width="1280" height="720" />
     </state>
@@ -182,22 +137,22 @@
       <screen x="1920" y="0" width="1280" height="720" />
     </state>
     <state x="2268" y="102" key="FileChooserDialogImpl/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1606491379218" />
-    <state width="1237" height="176" key="GridCell.Tab.0.bottom" timestamp="1607294378492">
+    <state width="1237" height="176" key="GridCell.Tab.0.bottom" timestamp="1607416637629">
       <screen x="1920" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="176" key="GridCell.Tab.0.bottom/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1607294378492" />
-    <state width="1237" height="176" key="GridCell.Tab.0.center" timestamp="1607294378492">
+    <state width="1237" height="176" key="GridCell.Tab.0.bottom/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1607416637629" />
+    <state width="1237" height="176" key="GridCell.Tab.0.center" timestamp="1607416637629">
       <screen x="1920" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="176" key="GridCell.Tab.0.center/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1607294378492" />
-    <state width="1237" height="176" key="GridCell.Tab.0.left" timestamp="1607294378492">
+    <state width="1237" height="176" key="GridCell.Tab.0.center/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1607416637629" />
+    <state width="1237" height="176" key="GridCell.Tab.0.left" timestamp="1607416637629">
       <screen x="1920" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="176" key="GridCell.Tab.0.left/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1607294378492" />
-    <state width="1237" height="176" key="GridCell.Tab.0.right" timestamp="1607294378492">
+    <state width="1237" height="176" key="GridCell.Tab.0.left/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1607416637629" />
+    <state width="1237" height="176" key="GridCell.Tab.0.right" timestamp="1607416637629">
       <screen x="1920" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="176" key="GridCell.Tab.0.right/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1607294378492" />
+    <state width="1237" height="176" key="GridCell.Tab.0.right/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1607416637629" />
     <state x="2041" y="0" key="SettingsEditor" timestamp="1606491663288">
       <screen x="1920" y="0" width="1280" height="720" />
     </state>

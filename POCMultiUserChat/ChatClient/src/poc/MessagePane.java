@@ -17,7 +17,7 @@ public class MessagePane extends JPanel implements MessageListener {
     private JList<String> messageList = new JList<>(listModel);
 
     /** Input field for messages */
-    private JTextField inputField = new JTextField();
+    private JTextField messageField = new JTextField();
 
     /** Login of user chat client is going to send messages to */
     private final String login;
@@ -32,21 +32,21 @@ public class MessagePane extends JPanel implements MessageListener {
         setLayout(new BorderLayout());
         // Add the message list UI as the center component
         add(new JScrollPane(messageList), BorderLayout.CENTER);
-        // Add the input field as the bottom component
-        add(inputField, BorderLayout.SOUTH);
+        // Add the message field as the bottom component
+        add(messageField, BorderLayout.SOUTH);
         // Listener of the message field
-        inputField.addActionListener(new ActionListener() {
+        messageField.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
                     // Get the typed message
-                    String message = inputField.getText();
+                    String message = messageField.getText();
                     // Send the message using client API
                     client.msg(login, message);
                     // Add the message to the conversation
                     listModel.addElement("You: " + message);
                     // Reset text field
-                    inputField.setText("");
+                    messageField.setText("");
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
