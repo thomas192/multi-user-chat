@@ -72,15 +72,15 @@ public class ServerWorker extends Thread {
                 if ("logoff".equals(cmd) || "quit".equalsIgnoreCase(cmd)) {
                     handleLogoff();
                     break;
-                // Connection
+                    // Connection
                 } else if ("login".equalsIgnoreCase(cmd)) {
                     handleLogin(outputStream, tokens);
-                // User to user messaging
+                    // User to user messaging
                 } else if ("msg".equalsIgnoreCase(cmd)) {
                     // Split line into 3 tokens (3rd token is the message)
                     String[] tokensMsg = StringUtils.split(line, null, 3);
                     handleMessage(tokensMsg);
-                // Join topic
+                    // Join topic
                 } else if ("join".equalsIgnoreCase(cmd)) {
                     handleJoin(tokens);
                 // Leave topic
@@ -97,11 +97,14 @@ public class ServerWorker extends Thread {
         clientSocket.close();
     }
 
-    private void handleLeave(String[] tokens) {
+    private void handleLeave(String[] tokens) throws IOException {
         if (tokens.length > 1) {
             String topic = tokens[1];
             // This connection has joined this topic
             topicSet.remove(topic);
+            // Notify client
+            String msg = "leave " + topic + "\n";
+            outputStream.write(msg.getBytes());
         }
     }
 
@@ -111,11 +114,14 @@ public class ServerWorker extends Thread {
     }
 
     /** Handles join command */
-    private void handleJoin(String[] tokens) {
+    private void handleJoin(String[] tokens) throws IOException {
         if (tokens.length > 1) {
             String topic = tokens[1];
             // This connection has joined this topic
             topicSet.add(topic);
+            // Notify client
+            String msg = "join " + topic + "\n";
+            outputStream.write(msg.getBytes());
         }
     }
 
@@ -136,13 +142,14 @@ public class ServerWorker extends Thread {
             if (isTopic) {
                 // Check if user is subscribed to the topic
                 if (worker.isMemberOfTopic(sendTo)) {
+                    // Notify client
                     String outMsg = "msg " + sendTo + ":" + login + " " + body + "\n";
                     worker.send(outMsg);
                 }
             } else {
                 // If worker matches recipient
                 if (sendTo.equalsIgnoreCase(worker.getLogin())) {
-                    // Display message
+                    // Notify client
                     String outMsg = "msg " + login + " " + body + "\n";
                     worker.send(outMsg);
                 }
@@ -165,6 +172,7 @@ public class ServerWorker extends Thread {
         for (ServerWorker worker : workerList) {
             // Check if we are not sending our own presence
             if (!login.equals(worker.getLogin())) {
+                // Notify client
                 worker.send(msg);
             }
         }
@@ -195,6 +203,7 @@ public class ServerWorker extends Thread {
                     // Check if we are not sending presence of not connected users yet
                     if (worker.getLogin() != null) {
                         if (!login.equals(worker.getLogin())) {
+                            // Notify client
                             msg = "online " + worker.getLogin() + "\n";
                             send(msg);
                         }
@@ -205,12 +214,14 @@ public class ServerWorker extends Thread {
                 for (ServerWorker worker : workerList) {
                     // Check if we are not sending our own presence
                     if (!login.equals(worker.getLogin())) {
+                        // Notify client
                         msg = "online " + login + "\n";
                         worker.send(msg);
                     }
                 }
 
             } else {
+                // Notify client
                 msg = "Error login\n";
                 outputStream.write(msg.getBytes());
                 System.err.println("error " + login);

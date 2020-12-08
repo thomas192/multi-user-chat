@@ -25,10 +25,10 @@ public class ChatClient {
     /** Buffer that is used to read the server output stream */
     private BufferedReader bufferedIn;
 
-    /** Stores the user status listeners of this chat client */
+    /** Event listeners */
     private ArrayList<UserStatusListener> userStatusListeners = new ArrayList<>();
-
     private ArrayList<MessageListener> messageListeners = new ArrayList<>();
+    private ArrayList<TopicListener> topicListeners = new ArrayList<>();
 
     /** Constructor of the server client class */
     public ChatClient(String serverName, int serverPort) {
@@ -56,6 +56,16 @@ public class ChatClient {
                 System.out.println("You got a message from " + fromLogin + ": " + msgBody);
             }
         });
+        client.addTopicListener(new TopicListener() {
+            @Override
+            public void onJoin(String topic) {
+                System.out.println("Joined topic " + topic);
+            }
+            @Override
+            public void onLeave(String topic) {
+                System.out.println("Left topic " + topic);
+            }
+        });
 
         // Connect client instance to the server
         if (!client.connect()) {
@@ -67,6 +77,8 @@ public class ChatClient {
                 System.out.println("Login successful");
 
                 client.msg("thomas", "Hello World!");
+
+                client.join("welcome");
             } else {
                 System.err.println("Login failed");
             }
@@ -75,12 +87,25 @@ public class ChatClient {
         }
     }
 
+    /** Makes the user join a topic */
+    public void join(String topic) throws IOException {
+        String cmd = "join #" + topic + "\n";
+        serverOut.write(cmd.getBytes());
+    }
+
+    /** Makes the user leave a topic */
+    public void leave(String topic) throws IOException {
+        String cmd = "leave #" + topic + "\n";
+        serverOut.write(cmd.getBytes());
+    }
+
+    /** Sends a message to a user */
     public void msg(String sendTo, String msgBody) throws IOException {
         String cmd = "msg " + sendTo + " " + msgBody + "\n";
         serverOut.write(cmd.getBytes());
     }
 
-    /** Logs the user by sending login command to the server */
+    /** Logs the user in */
     public boolean login(String login, String password) throws IOException {
         // Send login command to server
         String cmd = "login " + login + " " + password + "\n";
@@ -97,7 +122,7 @@ public class ChatClient {
         return false;
     }
 
-    /** Logs the user off by sending login command to the server */
+    /** Logs the user off */
     public void logoff() throws IOException {
         // Send logoff command to server
         String cmd = "logoff\n";
@@ -140,6 +165,12 @@ public class ChatClient {
                     } else if ("msg".equalsIgnoreCase(cmd)) {
                         String [] tokensMsg = StringUtils.split(line, null, 3);
                         handleMessage(tokensMsg);
+                    // Topic joined
+                    } else if ("join".equalsIgnoreCase(cmd)) {
+                        handleJoin(tokens);
+                    // Topic left
+                    } else if ("leave".equalsIgnoreCase((cmd))) {
+                        handleLeave(tokens);
                     }
                 }
             }
@@ -154,7 +185,25 @@ public class ChatClient {
         }
     }
 
-    /** Handles received messages
+    /** Handles topic leave
+     *  format: "leave" #topic */
+    private void handleLeave(String[] tokens) {
+        String topic = tokens[1];
+        for (TopicListener listener : topicListeners) {
+            listener.onLeave(topic);
+        }
+    }
+
+    /** Handles topic join
+     *  format: "join" #topic */
+    private void handleJoin(String[] tokens) {
+        String topic = tokens[1];
+        for (TopicListener listener : topicListeners) {
+            listener.onJoin(topic);
+        }
+    }
+
+    /** Handles received message
      *  format: "msg" login msgBody */
     private void handleMessage(String[] tokensMsg) {
         String login = tokensMsg[1];
@@ -214,5 +263,13 @@ public class ChatClient {
 
     public void removeMessageListener(MessageListener listener) {
         messageListeners.remove(listener);
+    }
+
+    public void addTopicListener(TopicListener listener) {
+        topicListeners.add(listener);
+    }
+
+    public void removeTopicListener(TopicListener listener) {
+        topicListeners.remove(listener);
     }
 }
