@@ -15,6 +15,12 @@ public class DAO {
         DAO dao = new DAO();
         HashSet<String> res = dao.getTopicsFollowed("thomas");
         System.out.println(res);
+
+        res.add("ete");
+        dao.updateTopicsFollowed("thomas", res);
+
+        res = dao.getTopicsFollowed("thomas");
+        System.out.println(res);
     }
 
     public boolean connectUser(String login, String password) {
@@ -50,5 +56,20 @@ public class DAO {
             e.printStackTrace();
         }
         return topicsFollowed;
+    }
+
+    public void updateTopicsFollowed(String login, HashSet<String> topicsFollowed) {
+        try {
+            Object[] o = topicsFollowed.toArray();
+
+            PreparedStatement query = connection.prepareStatement("UPDATE topicsfollowed SET topics = ? WHERE login = ?");
+            query.setArray(1, connection.createArrayOf("text", o));
+            query.setString(2, login);
+
+            query.execute();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
