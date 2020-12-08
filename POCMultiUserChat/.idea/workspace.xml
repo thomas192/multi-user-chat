@@ -54,8 +54,9 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
-  <component name="RunManager" selected="Application.ServerMain">
+  <component name="RunManager" selected="Application.DAO">
     <configuration name="ChatClient" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="poc.ChatClient" />
       <module name="ChatClient" />
@@ -116,9 +117,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.DAO" />
         <item itemvalue="Application.LoginWindow" />
         <item itemvalue="Application.ServerMain" />
-        <item itemvalue="Application.DAO" />
         <item itemvalue="Application.ChatClient" />
       </list>
     </recent_temporary>
@@ -155,10 +156,10 @@
       <screen x="1920" y="0" width="1280" height="720" />
     </state>
     <state x="2016" y="0" width="1089" height="720" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1607423622024" />
-    <state x="2366" y="67" key="#com.intellij.ide.util.MemberChooser" timestamp="1607423734986">
+    <state x="2366" y="67" key="#com.intellij.ide.util.MemberChooser" timestamp="1607445558601">
       <screen x="1920" y="0" width="1280" height="720" />
     </state>
-    <state x="2366" y="67" key="#com.intellij.ide.util.MemberChooser/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1607423734986" />
+    <state x="2366" y="67" key="#com.intellij.ide.util.MemberChooser/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1607445558601" />
     <state x="2397" y="63" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1607438661678">
       <screen x="1920" y="0" width="1280" height="720" />
     </state>
@@ -171,6 +172,10 @@
       <screen x="1920" y="0" width="1280" height="720" />
     </state>
     <state x="2297" y="115" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1607439925868" />
+    <state x="2319" y="221" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1607444234870">
+      <screen x="1920" y="0" width="1280" height="720" />
+    </state>
+    <state x="2319" y="221" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1607444234870" />
     <state x="2358" y="236" key="DetectedRootsChooserDialog" timestamp="1607439359515">
       <screen x="1920" y="0" width="1280" height="720" />
     </state>
@@ -179,22 +184,22 @@
       <screen x="1920" y="0" width="1280" height="720" />
     </state>
     <state x="2268" y="102" key="FileChooserDialogImpl/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1607440239265" />
-    <state width="1237" height="176" key="GridCell.Tab.0.bottom" timestamp="1607442797279">
+    <state width="1237" height="176" key="GridCell.Tab.0.bottom" timestamp="1607447696645">
       <screen x="1920" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="176" key="GridCell.Tab.0.bottom/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1607442797279" />
-    <state width="1237" height="176" key="GridCell.Tab.0.center" timestamp="1607442797279">
+    <state width="1237" height="176" key="GridCell.Tab.0.bottom/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1607447696645" />
+    <state width="1237" height="176" key="GridCell.Tab.0.center" timestamp="1607447696645">
       <screen x="1920" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="176" key="GridCell.Tab.0.center/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1607442797279" />
-    <state width="1237" height="176" key="GridCell.Tab.0.left" timestamp="1607442797279">
+    <state width="1237" height="176" key="GridCell.Tab.0.center/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1607447696645" />
+    <state width="1237" height="176" key="GridCell.Tab.0.left" timestamp="1607447696645">
       <screen x="1920" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="176" key="GridCell.Tab.0.left/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1607442797279" />
-    <state width="1237" height="176" key="GridCell.Tab.0.right" timestamp="1607442797279">
+    <state width="1237" height="176" key="GridCell.Tab.0.left/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1607447696645" />
+    <state width="1237" height="176" key="GridCell.Tab.0.right" timestamp="1607447696645">
       <screen x="1920" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="176" key="GridCell.Tab.0.right/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1607442797279" />
+    <state width="1237" height="176" key="GridCell.Tab.0.right/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1607447696645" />
     <state x="2047" y="0" key="SettingsEditor" timestamp="1607442453994">
       <screen x="1920" y="0" width="1280" height="720" />
     </state>
