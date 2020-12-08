@@ -25,8 +25,8 @@ public class ServerWorker extends Thread {
     /** Login of the server worker */
     private String login = null;
 
-    /** Stores the membership of the user to a topic */
-    private HashSet<String> topicSet = new HashSet<>();
+    /** Topics the user follows */
+    private HashSet<String> topicsFollowed = null;
 
     /** Constructor of the server worker class */
     public ServerWorker(Server server, Socket clientSocket) {
@@ -34,7 +34,7 @@ public class ServerWorker extends Thread {
         this.clientSocket = clientSocket;
     }
 
-    /** Public getter of the login so that other server workers know what the login is */
+    /** Public getter of the login so that other server workers can access it */
     public String getLogin() {
         return login;
     }
@@ -103,16 +103,13 @@ public class ServerWorker extends Thread {
         if (tokens.length > 1) {
             String topic = tokens[1];
             // This connection has joined this topic
-            topicSet.remove(topic);
+            topicsFollowed.remove(topic);
+            // Update database
+            dao.updateTopicsFollowed(login, topicsFollowed);
             // Notify client
             String msg = "leave " + topic + "\n";
             outputStream.write(msg.getBytes());
         }
-    }
-
-    /** Checks if user is subscribed to given topic */
-    public boolean isMemberOfTopic(String topic) {
-        return topicSet.contains(topic);
     }
 
     /** Handles join command */
@@ -120,11 +117,18 @@ public class ServerWorker extends Thread {
         if (tokens.length > 1) {
             String topic = tokens[1];
             // This connection has joined this topic
-            topicSet.add(topic);
+            topicsFollowed.add(topic);
+            // Update database
+            dao.updateTopicsFollowed(login, topicsFollowed);
             // Notify client
             String msg = "join " + topic + "\n";
             outputStream.write(msg.getBytes());
         }
+    }
+
+    /** Checks if user is subscribed to given topic */
+    public boolean isMemberOfTopic(String topic) {
+        return topicsFollowed.contains(topic);
     }
 
     /** Handles message command
@@ -196,6 +200,7 @@ public class ServerWorker extends Thread {
                 msg = "ok login\n";
                 outputStream.write(msg.getBytes());
                 this.login = login;
+                topicsFollowed = dao.getTopicsFollowed(login);
                 System.out.println("online " + login);
 
                 // Get the list of all the workers connected to the server

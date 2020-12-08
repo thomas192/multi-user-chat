@@ -56,7 +56,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
-  <component name="RunManager" selected="Application.DAO">
+  <component name="RunManager" selected="Application.LoginWindow">
     <configuration name="ChatClient" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="poc.ChatClient" />
       <module name="ChatClient" />
@@ -117,9 +117,9 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.DAO" />
         <item itemvalue="Application.LoginWindow" />
         <item itemvalue="Application.ServerMain" />
+        <item itemvalue="Application.DAO" />
         <item itemvalue="Application.ChatClient" />
       </list>
     </recent_temporary>
@@ -184,22 +184,22 @@
       <screen x="1920" y="0" width="1280" height="720" />
     </state>
     <state x="2268" y="102" key="FileChooserDialogImpl/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1607440239265" />
-    <state width="1237" height="176" key="GridCell.Tab.0.bottom" timestamp="1607447696645">
+    <state width="1237" height="176" key="GridCell.Tab.0.bottom" timestamp="1607452892269">
       <screen x="1920" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="176" key="GridCell.Tab.0.bottom/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1607447696645" />
-    <state width="1237" height="176" key="GridCell.Tab.0.center" timestamp="1607447696645">
+    <state width="1237" height="176" key="GridCell.Tab.0.bottom/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1607452892269" />
+    <state width="1237" height="176" key="GridCell.Tab.0.center" timestamp="1607452892269">
       <screen x="1920" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="176" key="GridCell.Tab.0.center/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1607447696645" />
-    <state width="1237" height="176" key="GridCell.Tab.0.left" timestamp="1607447696645">
+    <state width="1237" height="176" key="GridCell.Tab.0.center/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1607452892269" />
+    <state width="1237" height="176" key="GridCell.Tab.0.left" timestamp="1607452892269">
       <screen x="1920" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="176" key="GridCell.Tab.0.left/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1607447696645" />
-    <state width="1237" height="176" key="GridCell.Tab.0.right" timestamp="1607447696645">
+    <state width="1237" height="176" key="GridCell.Tab.0.left/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1607452892269" />
+    <state width="1237" height="176" key="GridCell.Tab.0.right" timestamp="1607452892269">
       <screen x="1920" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="176" key="GridCell.Tab.0.right/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1607447696645" />
+    <state width="1237" height="176" key="GridCell.Tab.0.right/0.0.1280.720/1920.0.1280.720@1920.0.1280.720" timestamp="1607452892269" />
     <state x="2047" y="0" key="SettingsEditor" timestamp="1607442453994">
       <screen x="1920" y="0" width="1280" height="720" />
     </state>
