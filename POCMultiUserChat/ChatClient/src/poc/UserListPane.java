@@ -98,15 +98,17 @@ public class UserListPane extends JPanel implements UserStatusListener, TopicLis
                 if (e.getClickCount() > 1) {
                     // Get clicked topic
                     String topic = topicList.getSelectedValue();
-                    // Create a message pane for that topic
-                    MessagePane messagePane = new MessagePane(client, topic);
-                    // Show the message pane in a separate window
-                    JFrame f = new JFrame(topic);
-                    f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                    f.setSize(500, 500);
-                    // Add the message pane as the center component
-                    f.getContentPane().add(messagePane, BorderLayout.CENTER);
-                    f.setVisible(true);
+                    if (topic != null) {
+                        // Create a message pane for that topic
+                        MessagePane messagePane = new MessagePane(client, topic);
+                        // Show the message pane in a separate window
+                        JFrame f = new JFrame(topic);
+                        f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                        f.setSize(500, 500);
+                        // Add the message pane as the center component
+                        f.getContentPane().add(messagePane, BorderLayout.CENTER);
+                        f.setVisible(true);
+                    }
                 }
             }
         });
@@ -119,15 +121,17 @@ public class UserListPane extends JPanel implements UserStatusListener, TopicLis
                 if (e.getClickCount() > 1) {
                     // Get clicked user's login
                     String login = userList.getSelectedValue();
-                    // Create a message pane for that login
-                    MessagePane messagePane = new MessagePane(client, login);
-                    // Show the message pane in a separate window
-                    JFrame f = new JFrame("Message: " + login);
-                    f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                    f.setSize(500, 500);
-                    // Add the message pane as the center component
-                    f.getContentPane().add(messagePane, BorderLayout.CENTER);
-                    f.setVisible(true);
+                    if (login != null) {
+                        // Create a message pane for that login
+                        MessagePane messagePane = new MessagePane(client, login);
+                        // Show the message pane in a separate window
+                        JFrame f = new JFrame("Message: " + login);
+                        f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                        f.setSize(500, 500);
+                        // Add the message pane as the center component
+                        f.getContentPane().add(messagePane, BorderLayout.CENTER);
+                        f.setVisible(true);
+                    }
                 }
             }
         });
