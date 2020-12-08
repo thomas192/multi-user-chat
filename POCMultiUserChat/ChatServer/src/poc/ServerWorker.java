@@ -10,7 +10,6 @@ import java.util.List;
 /** Class that is basically a thread which handles communication with client socket */
 public class ServerWorker extends Thread {
 
-
     /** The server instance that we can pass to each server worker */
     private final Server server;
 
@@ -19,6 +18,9 @@ public class ServerWorker extends Thread {
 
     /** The output stream of the client socket which allows us to write data for the client */
     private OutputStream outputStream;
+
+    /** DAO instance */
+    private DAO dao = new DAO();
 
     /** Login of the server worker */
     private String login = null;
@@ -187,10 +189,10 @@ public class ServerWorker extends Thread {
             String password = tokens[2];
 
             String msg;
-            // Hard coded login
-            if ((login.equals("guest") && password.equals("guest"))
-                    || (login.equals("thomas") && password.equals("thomas"))
-                    || (login.equals("bob") && password.equals("bob"))) {
+
+            // Log user in
+            boolean res = dao.connectUser(login, password);
+            if (res) {
                 msg = "ok login\n";
                 outputStream.write(msg.getBytes());
                 this.login = login;
