@@ -76,6 +76,27 @@ public class UserListPane extends JPanel implements UserStatusListener, TopicLis
             }
         });
 
+        // When click on a topic
+        topicList.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                // Check if it's a double click
+                if (e.getClickCount() > 1) {
+                    // Get clicked topic
+                    String topic = topicList.getSelectedValue();
+                    // Create a message pane for that topic
+                    MessagePane messagePane = new MessagePane(client, topic);
+                    // Show the message pane in a separate window
+                    JFrame f = new JFrame(topic);
+                    f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                    f.setSize(500, 500);
+                    // Add the message pane as the center component
+                    f.getContentPane().add(messagePane, BorderLayout.CENTER);
+                    f.setVisible(true);
+                }
+            }
+        });
+
         // When click on a connected user
         userList.addMouseListener(new MouseAdapter() {
             @Override

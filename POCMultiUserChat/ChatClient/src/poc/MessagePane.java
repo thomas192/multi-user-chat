@@ -1,5 +1,7 @@
 package poc;
 
+import org.apache.commons.lang3.StringUtils;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -55,6 +57,21 @@ public class MessagePane extends JPanel implements MessageListener {
 
     @Override
     public void onMessage(String fromLogin, String msgBody) {
+        // Check if recipient is a topic
+        if(fromLogin.charAt(0) == '#') {
+            String[] tokens = StringUtils.split(fromLogin, ":");
+            String fromTopic = tokens[0];
+            fromLogin = tokens[1];
+            // Check if the message is intended for this message pane instance
+            if (login.equalsIgnoreCase(fromTopic)) {
+                // Check if we are not displaying a message the user sent
+                if (!fromLogin.equalsIgnoreCase(client.login)) {
+                    // Add received message to the conversation
+                    String message = fromLogin + ": " + msgBody;
+                    messageListModel.addElement(message);
+                }
+            }
+        }
         // Check if the message is intended for this message pane instance
         if (login.equalsIgnoreCase(fromLogin)) {
             // Add received message to the conversation

@@ -189,7 +189,8 @@ public class ServerWorker extends Thread {
             String msg;
             // Hard coded login
             if ((login.equals("guest") && password.equals("guest"))
-                    || (login.equals("thomas") && password.equals("thomas"))) {
+                    || (login.equals("thomas") && password.equals("thomas"))
+                    || (login.equals("bob") && password.equals("bob"))) {
                 msg = "ok login\n";
                 outputStream.write(msg.getBytes());
                 this.login = login;

@@ -25,6 +25,9 @@ public class ChatClient {
     /** Buffer that is used to read the server output stream */
     private BufferedReader bufferedIn;
 
+    /** The client's login */
+    public String login;
+
     /** Event listeners */
     private ArrayList<UserStatusListener> userStatusListeners = new ArrayList<>();
     private ArrayList<MessageListener> messageListeners = new ArrayList<>();
@@ -79,6 +82,8 @@ public class ChatClient {
                 client.msg("thomas", "Hello World!");
 
                 client.join("welcome");
+
+                client.msg("#welcome", "Hey!");
             } else {
                 System.err.println("Login failed");
             }
@@ -115,6 +120,7 @@ public class ChatClient {
         System.out.println("Response line: " + response);
         // Check if login was successful
         if ("ok login".equalsIgnoreCase(response)) {
+            this.login = login;
             // Start reading responses from the server
             startMessageReader();
             return true;
