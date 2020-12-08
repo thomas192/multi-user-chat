@@ -65,7 +65,7 @@ public class MessagePane extends JPanel implements MessageListener {
             // Check if the message is intended for this message pane instance
             if (login.equalsIgnoreCase(fromTopic)) {
                 // Check if we are not displaying a message the user sent
-                if (!fromLogin.equalsIgnoreCase(client.login)) {
+                if (!fromLogin.equalsIgnoreCase(client.getLogin())) {
                     // Add received message to the conversation
                     String message = fromLogin + ": " + msgBody;
                     messageListModel.addElement(message);

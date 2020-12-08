@@ -1,24 +1,31 @@
 package poc;
 
+import com.sun.security.ntlm.Client;
+
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
+import java.util.HashSet;
 
 public class UserListPane extends JPanel implements UserStatusListener, TopicListener {
 
     /** Chat client instance */
     private final ChatClient client;
 
+    /** ClientDAO instance */
+    private ClientDAO clientDAO;
+
     /** Shows the list of connected users */
     private JList<String> userList;
     /** List model of connected users */
     private DefaultListModel<String> userListModel;
 
+    /** List of topics followed */
+    private HashSet<String> topicsFollowed;
     /** Shows the list of topics */
     private JList<String> topicList;
     /** List model of topics */
@@ -29,6 +36,8 @@ public class UserListPane extends JPanel implements UserStatusListener, TopicLis
 
     public UserListPane(ChatClient client) {
         this.client = client;
+        clientDAO = new ClientDAO();
+        topicsFollowed = clientDAO.getTopicsFollowed(client.getLogin());
 
         // Listeners
         this.client.addUserStatusListener(this);
@@ -56,6 +65,11 @@ public class UserListPane extends JPanel implements UserStatusListener, TopicLis
         setLayout(new GridLayout(1,2));
         add(p1);
         add(p3);
+
+        // Display topics followed
+        for (String topic : topicsFollowed) {
+            topicListModel.addElement(topic);
+        }
 
         // When topic added
         topicField.addActionListener(new ActionListener() {

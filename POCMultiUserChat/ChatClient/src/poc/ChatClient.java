@@ -26,7 +26,7 @@ public class ChatClient {
     private BufferedReader bufferedIn;
 
     /** The client's login */
-    public String login;
+    private String login;
 
     /** Event listeners */
     private ArrayList<UserStatusListener> userStatusListeners = new ArrayList<>();
@@ -253,6 +253,11 @@ public class ChatClient {
             e.printStackTrace();
         }
         return false;
+    }
+
+    /** Public getter of login */
+    public String getLogin() {
+        return login;
     }
 
     public void addUserStatusListener(UserStatusListener listener) {

@@ -19,8 +19,8 @@ public class ServerWorker extends Thread {
     /** The output stream of the client socket which allows us to write data for the client */
     private OutputStream outputStream;
 
-    /** DAO instance */
-    private DAO dao = new DAO();
+    /** ServerDAO instance */
+    private ServerDAO serverDao = new ServerDAO();
 
     /** Login of the server worker */
     private String login = null;
@@ -105,7 +105,7 @@ public class ServerWorker extends Thread {
             // This connection has joined this topic
             topicsFollowed.remove(topic);
             // Update database
-            dao.updateTopicsFollowed(login, topicsFollowed);
+            serverDao.updateTopicsFollowed(login, topicsFollowed);
             // Notify client
             String msg = "leave " + topic + "\n";
             outputStream.write(msg.getBytes());
@@ -119,7 +119,7 @@ public class ServerWorker extends Thread {
             // This connection has joined this topic
             topicsFollowed.add(topic);
             // Update database
-            dao.updateTopicsFollowed(login, topicsFollowed);
+            serverDao.updateTopicsFollowed(login, topicsFollowed);
             // Notify client
             String msg = "join " + topic + "\n";
             outputStream.write(msg.getBytes());
@@ -195,12 +195,12 @@ public class ServerWorker extends Thread {
             String msg;
 
             // Log user in
-            boolean res = dao.connectUser(login, password);
+            boolean res = serverDao.connectUser(login, password);
             if (res) {
                 msg = "ok login\n";
                 outputStream.write(msg.getBytes());
                 this.login = login;
-                topicsFollowed = dao.getTopicsFollowed(login);
+                topicsFollowed = serverDao.getTopicsFollowed(login);
                 System.out.println("online " + login);
 
                 // Get the list of all the workers connected to the server
