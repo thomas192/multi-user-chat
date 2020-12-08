@@ -7,20 +7,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="file://C:/Program Files/Java/commons-lang3-3.11" />
-        </CLASSES>
-        <JAVADOC>
-          <root url="file://C:/Program Files/Java/commons-lang3-3.11/apidocs" />
-        </JAVADOC>
-        <SOURCES>
-          <root url="file://C:/Program Files/Java/commons-lang3-3.11" />
-        </SOURCES>
-        <jarDirectory url="file://C:/Program Files/Java/commons-lang3-3.11" recursive="false" />
-        <jarDirectory url="file://C:/Program Files/Java/commons-lang3-3.11" recursive="false" type="SOURCES" />
-      </library>
-    </orderEntry>
+    <orderEntry type="library" name="commons-lang3-3" level="project" />
+    <orderEntry type="library" name="postgresql-42.1.4" level="project" />
   </component>
 </module>
