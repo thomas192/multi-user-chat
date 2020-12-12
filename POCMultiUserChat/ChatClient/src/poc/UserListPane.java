@@ -103,6 +103,8 @@ public class UserListPane extends JPanel implements UserStatusListener, TopicLis
                     if (topic != null) {
                         // Create a message pane for that topic
                         MessagePane messagePane = new MessagePane(client, topic);
+                        messagePane.setMessagesHistory(clientDAO.fetchTopicMessagesHistory(topic));
+                        messagePane.display();
                         // Show the message pane in a separate window
                         JFrame f = new JFrame(topic);
                         f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

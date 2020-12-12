@@ -22,11 +22,17 @@
     <list default="true" id="b9cfb25b-a3e2-4484-a8e1-1aca98d31f35" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ChatClient/src/poc/ClientDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChatClient/src/poc/ClientDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatClient/src/poc/MessagePane.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChatClient/src/poc/MessagePane.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ChatClient/src/poc/UserListPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChatClient/src/poc/UserListPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChatServer/src/poc/ServerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChatServer/src/poc/ServerDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatClient/src/poc/modele/TopicMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChatClient/src/poc/modele/Message.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ChatClient/poc/ClientDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatClient/poc/ClientDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ChatClient/poc/MessagePane$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatClient/poc/MessagePane$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ChatClient/poc/MessagePane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatClient/poc/MessagePane.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ChatClient/poc/UserListPane$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatClient/poc/UserListPane$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ChatClient/poc/UserListPane$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatClient/poc/UserListPane$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ChatClient/poc/UserListPane$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatClient/poc/UserListPane$4.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ChatClient/poc/UserListPane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatClient/poc/UserListPane.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChatServer/poc/ServerDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatServer/poc/ServerDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ChatClient/poc/modele/TopicMessage.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +71,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
-  <component name="RunManager" selected="Application.ClientDAO">
+  <component name="RunManager" selected="Application.LoginWindow">
     <configuration name="ChatClient" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="poc.ChatClient" />
       <module name="ChatClient" />
@@ -140,9 +146,9 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ClientDAO" />
         <item itemvalue="Application.LoginWindow" />
         <item itemvalue="Application.ServerMain" />
+        <item itemvalue="Application.ClientDAO" />
         <item itemvalue="Application.ServerDAO" />
         <item itemvalue="Application.ChatClient" />
       </list>

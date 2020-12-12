@@ -1,17 +1,22 @@
 package poc;
 
 import org.apache.commons.lang3.StringUtils;
+import poc.modele.Message;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.List;
 
 public class MessagePane extends JPanel implements MessageListener {
 
     /** Chat client (opened the message pane) */
     private final ChatClient client;
+
+    /** Messages history */
+    private List<Message> messagesHistory;
 
     /** List model of conversation's messages */
     private DefaultListModel<String> messageListModel = new DefaultListModel<>();
@@ -27,7 +32,6 @@ public class MessagePane extends JPanel implements MessageListener {
     public MessagePane(ChatClient client, String login) {
         this.client = client;
         this.login = login;
-
         // When the other user sends the client a message
         client.addMessageListener(this);
 
@@ -78,5 +82,21 @@ public class MessagePane extends JPanel implements MessageListener {
             String message = fromLogin + ": " + msgBody;
             messageListModel.addElement(message);
         }
+    }
+
+    public void display() {
+        // Display message history
+        for (Message m : messagesHistory) {
+            String fromLogin = m.getSender();
+            if (fromLogin.equals(client.getLogin())) {
+                fromLogin = "You";
+            }
+            String message = fromLogin + ": " + m.getBody();
+            messageListModel.addElement(message);
+        }
+    }
+
+    public void setMessagesHistory(List<Message> messagesHistory) {
+        this.messagesHistory = messagesHistory;
     }
 }
