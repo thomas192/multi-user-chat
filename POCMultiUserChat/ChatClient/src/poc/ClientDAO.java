@@ -15,7 +15,7 @@ public class ClientDAO {
 
     public static void main(String[] args) {
         ClientDAO dao = new ClientDAO();
-        List<Message> res = dao.fetchTopicMessagesHistory("#fete");
+        List<Message> res = dao.fetchPrivateMessagesHistory("ted", "bob");
         for (Message t : res) {
             System.out.println(t.getBody());
         }
@@ -47,6 +47,30 @@ public class ClientDAO {
         try {
             PreparedStatement query = connection.prepareStatement("SELECT * FROM topicmessage WHERE topic = ?");
             query.setString(1, topic);
+
+            ResultSet rs = query.executeQuery();
+
+            while (rs.next()) {
+                Message msg = new Message();
+                msg.setBody(rs.getString("body"));
+                msg.setSender(rs.getString("sender"));
+                messages.add(msg);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return messages;
+    }
+
+    public List<Message> fetchPrivateMessagesHistory(String user1, String user2) {
+        List<Message> messages = new ArrayList<Message>();
+        try {
+            PreparedStatement query = connection.prepareStatement("SELECT * FROM privatemessage WHERE (sender = ? AND recipient = ?) OR (sender = ? AND recipient = ?)");
+            query.setString(1, user1);
+            query.setString(2, user2);
+            query.setString(3, user2);
+            query.setString(4, user1);
 
             ResultSet rs = query.executeQuery();
 
