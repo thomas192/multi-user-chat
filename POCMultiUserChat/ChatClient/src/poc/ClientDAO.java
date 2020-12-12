@@ -1,6 +1,6 @@
 package poc;
 
-import poc.modele.TopicMessage;
+import poc.modele.Message;
 
 import java.sql.*;
 import java.util.*;
@@ -15,8 +15,8 @@ public class ClientDAO {
 
     public static void main(String[] args) {
         ClientDAO dao = new ClientDAO();
-        List<TopicMessage> res = dao.fetchTopicMessagesHistory("#fete");
-        for (TopicMessage t : res) {
+        List<Message> res = dao.fetchTopicMessagesHistory("#fete");
+        for (Message t : res) {
             System.out.println(t.getBody());
         }
     }
@@ -42,8 +42,8 @@ public class ClientDAO {
         return topicsFollowed;
     }
 
-    public List<TopicMessage> fetchTopicMessagesHistory(String topic) {
-        List<TopicMessage> messages = new ArrayList<TopicMessage>();
+    public List<Message> fetchTopicMessagesHistory(String topic) {
+        List<Message> messages = new ArrayList<Message>();
         try {
             PreparedStatement query = connection.prepareStatement("SELECT * FROM topicmessage WHERE topic = ?");
             query.setString(1, topic);
@@ -51,7 +51,7 @@ public class ClientDAO {
             ResultSet rs = query.executeQuery();
 
             while (rs.next()) {
-                TopicMessage msg = new TopicMessage();
+                Message msg = new Message();
                 msg.setBody(rs.getString("body"));
                 msg.setSender(rs.getString("sender"));
                 messages.add(msg);
