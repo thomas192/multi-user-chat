@@ -15,7 +15,7 @@ public class UserListPane extends JPanel implements UserStatusListener, TopicLis
     private final ChatClient client;
 
     /** ClientDAO instance */
-    private ClientDAO clientDAO;
+    private ClientDAO clientDAO = new ClientDAO();
 
     /** Shows the list of connected users */
     private JList<String> userList;
@@ -65,13 +65,6 @@ public class UserListPane extends JPanel implements UserStatusListener, TopicLis
         setLayout(new GridLayout(1,2));
         add(p1);
         add(p3);
-
-        clientDAO = new ClientDAO();
-        topicsFollowed = clientDAO.fetchTopicsFollowed(client.getLogin());
-        // Display topics followed
-        for (String topic : topicsFollowed) {
-            topicListModel.addElement(topic);
-        }
 
         // Topic added
         topicField.addActionListener(new ActionListener() {
@@ -156,6 +149,18 @@ public class UserListPane extends JPanel implements UserStatusListener, TopicLis
                 }
             }
         });
+    }
+
+    public void display() {
+        // Display topics followed
+        for (String topic : topicsFollowed) {
+            topicListModel.addElement(topic);
+        }
+    }
+
+    public void setTopicsFollowed(HashSet<String> topicsFollowed) {
+        this.topicsFollowed = topicsFollowed;
+        System.out.println(topicsFollowed);
     }
 
     @Override

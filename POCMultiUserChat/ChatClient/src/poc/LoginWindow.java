@@ -13,6 +13,9 @@ public class LoginWindow extends JFrame {
     /** Instance of the client API so that we can login */
     private final ChatClient client;
 
+    /** ClientDAO instance */
+    private ClientDAO clientDAO = new ClientDAO();
+
     /** Input field for login */
     JTextField loginField = new JTextField();
 
@@ -60,6 +63,8 @@ public class LoginWindow extends JFrame {
                 // Bring up the user list window
                 // Create user pane that takes the client
                 UserListPane userListPane = new UserListPane(client);
+                userListPane.setTopicsFollowed(clientDAO.fetchTopicsFollowed(login));
+                userListPane.display();
                 // Create the user list window
                 JFrame userListWindow = new JFrame("User List");
                 userListWindow.setSize(400, 600);
