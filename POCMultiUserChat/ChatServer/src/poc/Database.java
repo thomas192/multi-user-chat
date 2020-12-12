@@ -12,7 +12,7 @@ public class Database {
             e.printStackTrace();
         }
         try {
-            connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/POCMultiUserChat", "postgres", "4101676");
+            connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/POCMultiUserChat", "postgres", "postgres");
         } catch (SQLException e) {
             e.printStackTrace();
         }
