@@ -54,6 +54,20 @@ public class ServerDAO {
         }
     }
 
+    public void addPrivateMessage(String recipient, String body, String sender) {
+        try {
+            PreparedStatement query = connection.prepareStatement("INSERT INTO privatemessage(recipient, body, sender) VALUES(?, ?, ?)");
+            query.setString(1, recipient);
+            query.setString(2, body);
+            query.setString(3, sender);
+
+            query.execute();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     public HashSet<String> fetchTopicsFollowed(String login) {
         HashSet<String> topicsFollowed = new HashSet<>();
         try {

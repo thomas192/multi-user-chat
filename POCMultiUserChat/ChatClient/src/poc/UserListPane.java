@@ -160,7 +160,6 @@ public class UserListPane extends JPanel implements UserStatusListener, TopicLis
 
     public void setTopicsFollowed(HashSet<String> topicsFollowed) {
         this.topicsFollowed = topicsFollowed;
-        System.out.println(topicsFollowed);
     }
 
     @Override

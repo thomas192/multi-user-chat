@@ -20,7 +20,7 @@ public class ServerWorker extends Thread {
     private OutputStream outputStream;
 
     /** ServerDAO instance */
-    private ServerDAO serverDao = new ServerDAO();
+    private ServerDAO serverDAO = new ServerDAO();
 
     /** Login of the server worker */
     private String login = null;
@@ -106,7 +106,7 @@ public class ServerWorker extends Thread {
             // This connection has joined this topic
             topicsFollowed.remove(topic);
             // Update database
-            serverDao.updateTopicsFollowed(login, topicsFollowed);
+            serverDAO.updateTopicsFollowed(login, topicsFollowed);
             // Notify client
             String msg = "leave " + topic + "\n";
             outputStream.write(msg.getBytes());
@@ -120,7 +120,7 @@ public class ServerWorker extends Thread {
             // This connection has joined this topic
             topicsFollowed.add(topic);
             // Update database
-            serverDao.updateTopicsFollowed(login, topicsFollowed);
+            serverDAO.updateTopicsFollowed(login, topicsFollowed);
             // Notify client
             String msg = "join " + topic + "\n";
             outputStream.write(msg.getBytes());
@@ -142,13 +142,20 @@ public class ServerWorker extends Thread {
         String body = tokens[2];
         // Determine whether 2nd token is a topic
         boolean isTopic = sendTo.charAt(0) == '#';
+        if (!sendTo.equalsIgnoreCase(login)) {
+            if (isTopic) {
+                // Save message to database
+                serverDAO.addTopicMessage(sendTo, body, login);
+            } else {
+                // Save message to database
+                serverDAO.addPrivateMessage(sendTo, body, login);
+            }
+        }
         // Get the list of all the workers connected to the server
         List<ServerWorker> workerList = server.getWorkerList();
         for(ServerWorker worker : workerList) {
             // Check if message recipient is a topic
             if (isTopic) {
-                // Save message to database
-                serverDao.addTopicMessage(sendTo, body, login);
                 // Check if user is subscribed to the topic
                 if (worker.isMemberOfTopic(sendTo)) {
                     // Notify client
@@ -198,12 +205,12 @@ public class ServerWorker extends Thread {
             String msg;
 
             // Log user in
-            boolean res = serverDao.connectUser(login, password);
+            boolean res = serverDAO.connectUser(login, password);
             if (res) {
                 msg = "ok login\n";
                 outputStream.write(msg.getBytes());
                 this.login = login;
-                topicsFollowed = serverDao.fetchTopicsFollowed(login);
+                topicsFollowed = serverDAO.fetchTopicsFollowed(login);
                 System.out.println("online " + login);
 
                 // Get the list of all the workers connected to the server
