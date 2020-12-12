@@ -8,6 +8,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.util.HashSet;
+import java.util.List;
 
 public class UserListPane extends JPanel implements UserStatusListener, TopicListener {
 
@@ -29,6 +30,13 @@ public class UserListPane extends JPanel implements UserStatusListener, TopicLis
     /** List model of topics */
     private DefaultListModel<String> topicListModel;
 
+    /** List of past conversations */
+    private List<String> conversationsHistory;
+    /** Shows the list of past conversations */
+    private JList<String> conversationsHistoryList;
+    /** List model of past conversations */
+    private DefaultListModel<String> conversationsHistoryListModel;
+
     /** Topic field */
     private JTextField topicField = new JTextField();
 
@@ -46,11 +54,25 @@ public class UserListPane extends JPanel implements UserStatusListener, TopicLis
         userList = new JList<>(userListModel);
         topicListModel = new DefaultListModel<>();
         topicList = new JList<>(topicListModel);
-        // User list panel
+        conversationsHistoryListModel = new DefaultListModel<>();
+        conversationsHistoryList = new JList<>(conversationsHistoryListModel);
+        
+        // Connected users panel
         JPanel p1 = new JPanel();
         p1.setLayout(new BorderLayout());
         p1.add(new JLabel("Connected users"), BorderLayout.NORTH);
         p1.add(new JScrollPane(userList), BorderLayout.CENTER);
+        // Conversations history panel
+        JPanel p4 = new JPanel();
+        p4.setLayout(new BorderLayout());
+        p4.add(new JLabel("Conversations history"), BorderLayout.NORTH);
+        p4.add(new JScrollPane(conversationsHistoryList), BorderLayout.CENTER);
+
+        JPanel p5 = new JPanel();
+        p5.setLayout(new GridLayout(2, 1));
+        p5.add(p1);
+        p5.add(p4);
+
         // Topic list panel
         JPanel p2 = new JPanel();
         p2.setLayout(new GridLayout(1,2));
@@ -63,7 +85,7 @@ public class UserListPane extends JPanel implements UserStatusListener, TopicLis
         p3.add(unfollowButton, BorderLayout.SOUTH);
 
         setLayout(new GridLayout(1,2));
-        add(p1);
+        add(p5);
         add(p3);
 
         // Topic added
