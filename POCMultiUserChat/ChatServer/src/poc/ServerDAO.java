@@ -13,13 +13,13 @@ public class ServerDAO {
 
     public static void main(String[] args) {
         ServerDAO serverDao = new ServerDAO();
-        HashSet<String> res = serverDao.getTopicsFollowed("thomas");
+        HashSet<String> res = serverDao.fetchTopicsFollowed("thomas");
         System.out.println(res);
 
         res.add("ete");
         serverDao.updateTopicsFollowed("thomas", res);
 
-        res = serverDao.getTopicsFollowed("thomas");
+        res = serverDao.fetchTopicsFollowed("thomas");
         System.out.println(res);
     }
 
@@ -40,7 +40,21 @@ public class ServerDAO {
         return true;
     }
 
-    public HashSet<String> getTopicsFollowed(String login) {
+    public void addTopicMessage(String topic, String msg, String sender) {
+        try {
+            PreparedStatement query = connection.prepareStatement("INSERT INTO topicmessage(topic, message, sender) VALUES(?, ?, ?)");
+            query.setString(1, topic);
+            query.setString(2, msg);
+            query.setString(3, sender);
+
+            query.execute();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public HashSet<String> fetchTopicsFollowed(String login) {
         HashSet<String> topicsFollowed = new HashSet<>();
         try {
             PreparedStatement query = connection.prepareStatement("SELECT topics FROM topicsfollowed WHERE login = ?");
