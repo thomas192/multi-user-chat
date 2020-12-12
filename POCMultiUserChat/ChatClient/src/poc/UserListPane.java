@@ -67,7 +67,7 @@ public class UserListPane extends JPanel implements UserStatusListener, TopicLis
         add(p3);
 
         clientDAO = new ClientDAO();
-        topicsFollowed = clientDAO.getTopicsFollowed(client.getLogin());
+        topicsFollowed = clientDAO.fetchTopicsFollowed(client.getLogin());
         // Display topics followed
         for (String topic : topicsFollowed) {
             topicListModel.addElement(topic);

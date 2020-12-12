@@ -1,5 +1,7 @@
 package poc;
 
+import poc.modele.TopicMessage;
+
 import java.sql.*;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -13,11 +15,13 @@ public class ClientDAO {
 
     public static void main(String[] args) {
         ClientDAO dao = new ClientDAO();
-        HashSet res = dao.getTopicsFollowed("bob");
-        System.out.println(res);
+        List<TopicMessage> res = dao.fetchTopicMessagesHistory("#fete");
+        for (TopicMessage t : res) {
+            System.out.println(t.getBody());
+        }
     }
 
-    public HashSet<String> getTopicsFollowed(String login) {
+    public HashSet<String> fetchTopicsFollowed(String login) {
         HashSet<String> topicsFollowed = new HashSet<>();
         try {
             PreparedStatement query = connection.prepareStatement("SELECT topics FROM topicsfollowed WHERE login = ?");
@@ -36,5 +40,26 @@ public class ClientDAO {
             e.printStackTrace();
         }
         return topicsFollowed;
+    }
+
+    public List<TopicMessage> fetchTopicMessagesHistory(String topic) {
+        List<TopicMessage> messages = new ArrayList<TopicMessage>();
+        try {
+            PreparedStatement query = connection.prepareStatement("SELECT * FROM topicmessage WHERE topic = ?");
+            query.setString(1, topic);
+
+            ResultSet rs = query.executeQuery();
+
+            while (rs.next()) {
+                TopicMessage msg = new TopicMessage();
+                msg.setBody(rs.getString("body"));
+                msg.setSender(rs.getString("sender"));
+                messages.add(msg);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return messages;
     }
 }

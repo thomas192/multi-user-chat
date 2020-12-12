@@ -40,11 +40,11 @@ public class ServerDAO {
         return true;
     }
 
-    public void addTopicMessage(String topic, String msg, String sender) {
+    public void addTopicMessage(String topic, String body, String sender) {
         try {
-            PreparedStatement query = connection.prepareStatement("INSERT INTO topicmessage(topic, message, sender) VALUES(?, ?, ?)");
+            PreparedStatement query = connection.prepareStatement("INSERT INTO topicmessage(topic, body, sender) VALUES(?, ?, ?)");
             query.setString(1, topic);
-            query.setString(2, msg);
+            query.setString(2, body);
             query.setString(3, sender);
 
             query.execute();
