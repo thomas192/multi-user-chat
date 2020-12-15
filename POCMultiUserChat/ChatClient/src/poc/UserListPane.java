@@ -56,7 +56,7 @@ public class UserListPane extends JPanel implements UserStatusListener, TopicLis
         topicList = new JList<>(topicListModel);
         conversationsHistoryListModel = new DefaultListModel<>();
         conversationsHistoryList = new JList<>(conversationsHistoryListModel);
-        
+
         // Connected users panel
         JPanel p1 = new JPanel();
         p1.setLayout(new BorderLayout());
@@ -157,6 +157,32 @@ public class UserListPane extends JPanel implements UserStatusListener, TopicLis
             }
         });
 
+        // Click on a past conversation
+        conversationsHistoryList.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                // Check if it's a double click
+                if (e.getClickCount() > 1) {
+                    System.out.println("hey");
+                    // Get clicked user's login
+                    String login = conversationsHistoryList.getSelectedValue();
+                    if (login != null) {
+                        // Create a message pane for that login
+                        MessagePane messagePane = new MessagePane(client, login);
+                        messagePane.setMessagesHistory(clientDAO.fetchPrivateMessagesHistory(client.getLogin(), login));
+                        messagePane.display();
+                        // Show the message pane in a separate window
+                        JFrame f = new JFrame("Message: " + login);
+                        f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                        f.setSize(500, 500);
+                        // Add the message pane as the center component
+                        f.getContentPane().add(messagePane, BorderLayout.CENTER);
+                        f.setVisible(true);
+                    }
+                }
+            }
+        });
+
         // Unfollow button is clicked
         unfollowButton.addActionListener(new ActionListener() {
             @Override
@@ -180,10 +206,18 @@ public class UserListPane extends JPanel implements UserStatusListener, TopicLis
         for (String topic : topicsFollowed) {
             topicListModel.addElement(topic);
         }
+        // Display conversation history
+        for (String login : conversationsHistory) {
+            conversationsHistoryListModel.addElement(login);
+        }
     }
 
     public void setTopicsFollowed(HashSet<String> topicsFollowed) {
         this.topicsFollowed = topicsFollowed;
+    }
+
+    public void setConversationsHistory(List<String> conversationsHistory) {
+        this.conversationsHistory = conversationsHistory;
     }
 
     @Override

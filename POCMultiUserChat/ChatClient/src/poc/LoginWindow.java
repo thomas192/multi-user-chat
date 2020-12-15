@@ -64,6 +64,7 @@ public class LoginWindow extends JFrame {
                 // Create user pane that takes the client
                 UserListPane userListPane = new UserListPane(client);
                 userListPane.setTopicsFollowed(clientDAO.fetchTopicsFollowed(login));
+                userListPane.setConversationsHistory((clientDAO.fetchConversationsHistory(login)));
                 userListPane.display();
                 // Create the user list window
                 JFrame userListWindow = new JFrame("User List");
