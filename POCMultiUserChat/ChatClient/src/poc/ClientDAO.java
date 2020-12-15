@@ -15,10 +15,8 @@ public class ClientDAO {
 
     public static void main(String[] args) {
         ClientDAO dao = new ClientDAO();
-        List<Message> res = dao.fetchPrivateMessagesHistory("ted", "bob");
-        for (Message t : res) {
-            System.out.println(t.getBody());
-        }
+        List<String> res = dao.fetchConversationsHistory("ted");
+        System.out.println(res);
     }
 
     public HashSet<String> fetchTopicsFollowed(String login) {
@@ -85,5 +83,35 @@ public class ClientDAO {
             e.printStackTrace();
         }
         return messages;
+    }
+
+    public List<String> fetchConversationsHistory(String login) {
+        List<String> loginsCombined = new ArrayList<>();
+        try {
+            PreparedStatement query = connection.prepareStatement("SELECT DISTINCT recipient FROM privatemessage WHERE sender = ?");
+            query.setString(1, login);
+            ResultSet rs = query.executeQuery();
+            List<String> logins = new ArrayList<>();
+            while (rs.next()) {
+                logins.add(rs.getString("recipient"));
+            }
+
+            PreparedStatement queryBis = connection.prepareStatement("SELECT DISTINCT sender FROM privatemessage WHERE recipient = ?");
+            queryBis.setString(1, login);
+            ResultSet rsBis = queryBis.executeQuery();
+            List<String> loginsBis = new ArrayList<>();
+            while (rsBis.next()) {
+                loginsBis.add(rsBis.getString("sender"));
+            }
+
+            // Merge lists without duplicates
+            Set<String> set = new LinkedHashSet<>(logins);
+            set.addAll(loginsBis);
+            loginsCombined = new ArrayList<>(set);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return loginsCombined;
     }
 }
