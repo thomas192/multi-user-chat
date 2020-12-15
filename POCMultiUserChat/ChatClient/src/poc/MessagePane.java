@@ -33,7 +33,7 @@ public class MessagePane extends JPanel implements MessageListener {
         this.client = client;
         this.login = login;
         // When the other user sends the client a message
-        client.addMessageListener(this);
+        this.client.addMessageListener(this);
 
         setLayout(new BorderLayout());
         add(new JScrollPane(messageList), BorderLayout.CENTER);

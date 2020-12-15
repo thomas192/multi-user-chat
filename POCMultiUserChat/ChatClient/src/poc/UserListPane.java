@@ -228,6 +228,10 @@ public class UserListPane extends JPanel implements UserStatusListener, TopicLis
     @Override
     public void offline(String login) {
         userListModel.removeElement(login);
+
+        if (clientDAO.hadAConversation(login, client.getLogin())) {
+            conversationsHistoryListModel.addElement(login);
+        }
     }
 
     @Override
