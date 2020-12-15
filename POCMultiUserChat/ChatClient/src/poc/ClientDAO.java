@@ -15,7 +15,7 @@ public class ClientDAO {
 
     public static void main(String[] args) {
         ClientDAO dao = new ClientDAO();
-        List<String> res = dao.fetchConversationsHistory("ted");
+        boolean res = dao.hadAConversation("ted", "bob");
         System.out.println(res);
     }
 
@@ -113,5 +113,22 @@ public class ClientDAO {
             e.printStackTrace();
         }
         return loginsCombined;
+    }
+
+    public boolean hadAConversation(String login1, String login2) {
+        try {
+            PreparedStatement query = connection.prepareStatement("SELECT * FROM privatemessage WHERE (sender = ? AND recipient = ?) OR (sender = ? AND recipient = ?) LIMIT 1");
+            query.setString(1, login1);
+            query.setString(2, login2);
+            query.setString(3, login2);
+            query.setString(4, login1);
+            ResultSet rs = query.executeQuery();
+            if (rs.next()) {
+                return true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }
