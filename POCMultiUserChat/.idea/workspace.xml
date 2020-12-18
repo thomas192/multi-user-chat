@@ -21,44 +21,13 @@
   <component name="ChangeListManager">
     <list default="true" id="b9cfb25b-a3e2-4484-a8e1-1aca98d31f35" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChatClient/src/poc/ChatClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChatClient/src/poc/ChatClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChatClient/src/poc/ClientDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChatClient/src/poc/data/ClientDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChatClient/src/poc/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChatClient/src/poc/data/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChatClient/src/poc/LoginWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChatClient/src/poc/LoginWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChatClient/src/poc/MessageListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChatClient/src/poc/listener/MessageListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChatClient/src/poc/MessagePane.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChatClient/src/poc/MessagePane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChatClient/src/poc/TopicListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChatClient/src/poc/listener/TopicListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ChatClient/src/poc/UserListPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChatClient/src/poc/UserListPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChatClient/src/poc/UserStatusListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChatClient/src/poc/listener/UserStatusListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChatClient/src/poc/modele/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChatClient/src/poc/model/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChatServer/src/poc/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChatServer/src/poc/data/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChatServer/src/poc/ServerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChatServer/src/poc/data/ServerDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChatServer/src/poc/ServerWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChatServer/src/poc/ServerWorker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChatClient/poc/ChatClient$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatClient/poc/ChatClient$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChatClient/poc/ChatClient$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatClient/poc/ChatClient$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChatClient/poc/ChatClient$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatClient/poc/ChatClient$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChatClient/poc/ChatClient$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatClient/poc/ChatClient$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChatClient/poc/ChatClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatClient/poc/ChatClient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChatClient/poc/ClientDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChatClient/poc/Database.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChatClient/poc/LoginWindow$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatClient/poc/LoginWindow$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChatClient/poc/LoginWindow$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatClient/poc/LoginWindow$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChatClient/poc/LoginWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatClient/poc/LoginWindow.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChatClient/poc/MessageListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChatClient/poc/MessagePane$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatClient/poc/MessagePane$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChatClient/poc/MessagePane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatClient/poc/MessagePane.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChatClient/poc/TopicListener.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ChatClient/poc/UserListPane$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatClient/poc/UserListPane$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ChatClient/poc/UserListPane$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatClient/poc/UserListPane$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ChatClient/poc/UserListPane$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatClient/poc/UserListPane$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ChatClient/poc/UserListPane$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatClient/poc/UserListPane$4.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ChatClient/poc/UserListPane$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatClient/poc/UserListPane$5.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ChatClient/poc/UserListPane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatClient/poc/UserListPane.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChatClient/poc/UserStatusListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChatClient/poc/modele/Message.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChatServer/poc/Database.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChatServer/poc/ServerDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChatServer/poc/ServerWorker.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatServer/poc/ServerWorker.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

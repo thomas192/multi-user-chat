@@ -1,20 +1,23 @@
 package poc;
 
+import org.apache.commons.lang3.StringUtils;
 import poc.data.ClientDAO;
+import poc.listener.MessageListener;
 import poc.listener.TopicListener;
 import poc.listener.UserStatusListener;
+import poc.model.Message;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
-import java.util.HashSet;
 import java.util.List;
 
-public class UserListPane extends JPanel implements UserStatusListener, TopicListener {
+public class UserListPane extends JPanel implements UserStatusListener, TopicListener, MessageListener {
 
     /** Chat client instance */
     private final ChatClient client;
@@ -47,12 +50,16 @@ public class UserListPane extends JPanel implements UserStatusListener, TopicLis
     /** Unfollow button */
     private JButton unfollowButton = new JButton("Unfollow");
 
+    /** Stores the messages history of topics the user is following */
+    Map<String, List<Message>> topicMessagesHistory = new HashMap<String, List<Message>>();
+
     public UserListPane(ChatClient client) {
         this.client = client;
 
         // Listeners
         this.client.addUserStatusListener(this);
         this.client.addTopicListener(this);
+        this.client.addMessageListener(this);
 
         userListModel = new DefaultListModel<>();
         userList = new JList<>(userListModel);
@@ -122,7 +129,11 @@ public class UserListPane extends JPanel implements UserStatusListener, TopicLis
                     if (topic != null) {
                         // Create a message pane for that topic
                         MessagePane messagePane = new MessagePane(client, topic);
-                        messagePane.setMessagesHistory(clientDAO.fetchTopicMessagesHistory(topic));
+                        // Cache messages history
+                        if (!topicMessagesHistory.containsKey(topic)) {
+                            topicMessagesHistory.put(topic, clientDAO.fetchTopicMessagesHistory(topic));
+                        }
+                        messagePane.setMessagesHistory(topicMessagesHistory.get(topic));
                         messagePane.display();
                         // Show the message pane in a separate window
                         JFrame f = new JFrame(topic);
@@ -167,7 +178,6 @@ public class UserListPane extends JPanel implements UserStatusListener, TopicLis
             public void mouseClicked(MouseEvent e) {
                 // Check if it's a double click
                 if (e.getClickCount() > 1) {
-                    System.out.println("hey");
                     // Get clicked user's login
                     String login = conversationsHistoryList.getSelectedValue();
                     if (login != null) {
@@ -246,5 +256,23 @@ public class UserListPane extends JPanel implements UserStatusListener, TopicLis
     @Override
     public void onLeave(String topic) {
         topicListModel.removeElement(topic);
+    }
+
+    @Override
+    public void onMessage(String fromLogin, String msgBody) {
+        // Check if recipient is a topic
+        if(fromLogin.charAt(0) == '#') {
+            String[] tokens = StringUtils.split(fromLogin, ":");
+            String fromTopic = tokens[0];
+            fromLogin = tokens[1];
+            // Check if caching for this topic has been initialized
+            if (topicMessagesHistory.containsKey(fromTopic)) {
+                // Cache message
+                Message msg = new Message();
+                msg.setBody(msgBody);
+                msg.setSender(fromLogin);
+                topicMessagesHistory.get(fromTopic).add(msg);
+            }
+        }
     }
 }
