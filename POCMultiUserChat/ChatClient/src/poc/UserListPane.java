@@ -254,9 +254,18 @@ public class UserListPane extends JPanel implements UserStatusListener, TopicLis
     @Override
     public void offline(String login) {
         userListModel.removeElement(login);
-
+        // Check if user had a conversation with the disconnected user
         if (clientDAO.hadAConversation(login, client.getLogin())) {
-            conversationsHistoryListModel.addElement(login);
+            boolean b = false;
+            // Check if the disconnected user is not already in the conversations history
+            for (int i=0; i < conversationsHistoryListModel.size(); i++) {
+                if (conversationsHistoryListModel.getElementAt(i).equals(login)) {
+                    b = true;
+                }
+            }
+            if (!b) {
+                conversationsHistoryListModel.addElement(login);
+            }
         }
     }
 
