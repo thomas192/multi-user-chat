@@ -1,5 +1,7 @@
 package poc;
 
+import poc.data.ClientDAO;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

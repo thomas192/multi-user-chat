@@ -1,4 +1,4 @@
-package poc;
+package poc.listener;
 
 public interface UserStatusListener {
     public void online(String login);

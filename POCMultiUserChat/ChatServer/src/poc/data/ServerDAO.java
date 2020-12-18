@@ -1,4 +1,4 @@
-package poc;
+package poc.data;
 
 import java.sql.*;
 import java.util.*;

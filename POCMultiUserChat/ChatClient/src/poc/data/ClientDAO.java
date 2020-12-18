@@ -1,6 +1,6 @@
-package poc;
+package poc.data;
 
-import poc.modele.Message;
+import poc.model.Message;
 
 import java.sql.*;
 import java.util.*;

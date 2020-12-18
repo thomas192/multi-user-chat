@@ -1,4 +1,4 @@
-package poc;
+package poc.listener;
 
 public interface TopicListener {
     public void onJoin(String topic);

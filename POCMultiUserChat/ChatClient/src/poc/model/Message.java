@@ -1,4 +1,4 @@
-package poc.modele;
+package poc.model;
 
 public class Message {
     protected String body;

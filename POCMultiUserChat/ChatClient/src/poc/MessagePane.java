@@ -1,7 +1,8 @@
 package poc;
 
 import org.apache.commons.lang3.StringUtils;
-import poc.modele.Message;
+import poc.listener.MessageListener;
+import poc.model.Message;
 
 import javax.swing.*;
 import java.awt.*;

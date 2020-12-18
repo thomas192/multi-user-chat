@@ -1,5 +1,9 @@
 package poc;
 
+import poc.data.ClientDAO;
+import poc.listener.TopicListener;
+import poc.listener.UserStatusListener;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
