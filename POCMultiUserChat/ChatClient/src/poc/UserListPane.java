@@ -52,6 +52,8 @@ public class UserListPane extends JPanel implements UserStatusListener, TopicLis
 
     /** Stores the messages history of topics the user is following */
     Map<String, List<Message>> topicMessagesHistory = new HashMap<String, List<Message>>();
+    /** Stores the messages history of private conversations */
+    Map<String, List<Message>> privateMessagesHistory = new HashMap<String, List<Message>>();
 
     public UserListPane(ChatClient client) {
         this.client = client;
@@ -158,7 +160,12 @@ public class UserListPane extends JPanel implements UserStatusListener, TopicLis
                     if (login != null) {
                         // Create a message pane for that login
                         MessagePane messagePane = new MessagePane(client, login);
-                        messagePane.setMessagesHistory(clientDAO.fetchPrivateMessagesHistory(client.getLogin(), login));
+                        // Cache messages history
+                        if (!privateMessagesHistory.containsKey(login)) {
+                            privateMessagesHistory.put(login,
+                                    clientDAO.fetchPrivateMessagesHistory(client.getLogin(), login));
+                        }
+                        messagePane.setMessagesHistory(privateMessagesHistory.get(login));
                         messagePane.display();
                         // Show the message pane in a separate window
                         JFrame f = new JFrame("Message: " + login);
@@ -183,7 +190,12 @@ public class UserListPane extends JPanel implements UserStatusListener, TopicLis
                     if (login != null) {
                         // Create a message pane for that login
                         MessagePane messagePane = new MessagePane(client, login);
-                        messagePane.setMessagesHistory(clientDAO.fetchPrivateMessagesHistory(client.getLogin(), login));
+                        // Cache messages history
+                        if (!privateMessagesHistory.containsKey(login)) {
+                            privateMessagesHistory.put(login,
+                                    clientDAO.fetchPrivateMessagesHistory(client.getLogin(), login));
+                        }
+                        messagePane.setMessagesHistory(privateMessagesHistory.get(login));
                         messagePane.display();
                         // Show the message pane in a separate window
                         JFrame f = new JFrame("Message: " + login);
@@ -267,11 +279,20 @@ public class UserListPane extends JPanel implements UserStatusListener, TopicLis
             fromLogin = tokens[1];
             // Check if caching for this topic has been initialized
             if (topicMessagesHistory.containsKey(fromTopic)) {
-                // Cache message
+                // Cache topic message
                 Message msg = new Message();
                 msg.setBody(msgBody);
                 msg.setSender(fromLogin);
                 topicMessagesHistory.get(fromTopic).add(msg);
+            }
+        } else {
+            // Check if caching for this private conversation has been initialized
+            if (privateMessagesHistory.containsKey(fromLogin)) {
+                // Cache private message
+                Message msg = new Message();
+                msg.setBody(msgBody);
+                msg.setSender(fromLogin);
+                privateMessagesHistory.get(fromLogin).add(msg);
             }
         }
     }
