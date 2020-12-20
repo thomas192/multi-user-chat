@@ -13,7 +13,6 @@ import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Set;
-import java.util.List;
 
 public class LoginWindow extends JFrame {
 
@@ -69,8 +68,8 @@ public class LoginWindow extends JFrame {
             if (client.login(login, password)) {
                 // Bring up the user list window
                 // Create user pane that takes the client
-                UserListPane userListPane = new UserListPane(client);
-                userListPane.setTopicsFollowed(clientDAO.fetchTopicsFollowed(login));
+                MainPane mainPane = new MainPane(client);
+                mainPane.setTopicsFollowed(clientDAO.fetchTopicsFollowed(login));
 
                 Jedis jedis = new Jedis("localhost");
                 // Get conversations history from redis
@@ -83,11 +82,11 @@ public class LoginWindow extends JFrame {
                     res = jedis.smembers(login);
                 }
                 jedis.disconnect();
-                userListPane.setConversationsHistory(new ArrayList<>(res));
+                mainPane.setConversationsHistory(new ArrayList<>(res));
                 // userListPane.setConversationsHistory(clientDAO.fetchConversationsHistory(login));
-                userListPane.display();
+                mainPane.display();
                 // Create the user list window
-                JFrame userListWindow = new JFrame("User List");
+                JFrame userListWindow = new JFrame("Main pane");
                 userListWindow.setSize(400, 600);
                 // Set behavior on close
                 userListWindow.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -104,7 +103,7 @@ public class LoginWindow extends JFrame {
                     }
                 });
                 // Add the user list pane as the main component
-                userListWindow.getContentPane().add(userListPane, BorderLayout.CENTER);
+                userListWindow.getContentPane().add(mainPane, BorderLayout.CENTER);
                 userListWindow.setVisible(true);
                 // Remove the login window
                 setVisible(false);

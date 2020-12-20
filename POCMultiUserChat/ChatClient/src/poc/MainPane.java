@@ -18,7 +18,7 @@ import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.util.List;
 
-public class UserListPane extends JPanel implements UserStatusListener, TopicListener, MessageListener {
+public class MainPane extends JPanel implements UserStatusListener, TopicListener, MessageListener {
 
     /** Chat client instance */
     private final ChatClient client;
@@ -56,7 +56,7 @@ public class UserListPane extends JPanel implements UserStatusListener, TopicLis
     /** Stores the messages history of private conversations */
     Map<String, List<Message>> privateMessagesHistory = new HashMap<String, List<Message>>();
 
-    public UserListPane(ChatClient client) {
+    public MainPane(ChatClient client) {
         this.client = client;
 
         // Listeners
