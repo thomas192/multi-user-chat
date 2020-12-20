@@ -4,10 +4,24 @@ Thomas Saudemont / Yann Roubeau / Lucas Guffroy
 
 ## Sujet
 
-Une application de chat avec des salons publics, des salons privés et un écran de statistiques.
+Application de chat avec des salons publics et des discussions privées.
 
-L'utilisateur doit s'inscrire en fournissant un pseudo et un mot de passe afin d'accéder à l'application. Une fois connecté, il peut envoyer des messages dans les salons publics existants. Il peut créer un salon privé avec un utilisateur en particulier s'il connait son pseudo. Pour cela, il clique sur le bouton + (en bleu) et cherche l'utilisateur désiré (il doit être inscrit). Un nouveau salon apparait alors dans la partie gauche de l'écran. 
+Une fois connecté, l'utilisateur arrive sur un écran d'accueil qui recense les utilisateurs connectés, les différentes conversations eues dans le passé avec d'autres utilisateurs, et les topics suivis. L'utilisateur peut engager une discussion avec un autre utilisateur s'il est connecté, s'il a déjà eu une conversation avec lui, ou via un topic (conversation de groupe). L'utilisateur peut également s'inscrire ou se désinscrire d'un topic. 
 
-![](/maquette_ecran_chat.png)
+## Ecrans
 
-L'écran de statistiques affiche le nombre total d'inscrits, le nombre total de messages et un graphique de l'évolution du nombre de messages par minute depuis une heure. Il est accessible via l'icône d'information en bas à gauche de l'écran.
+### Ecran de connexion
+
+<img src="LoginWindow.png" style="zoom:80%;" />
+
+### Ecran d'accueil
+
+<img src="MainPane.png" style="zoom:80%;" />
+
+### Ecran de conversation
+
+<img src="MessagePane.png" style="zoom:80%;" />
+
+## Rapport
+
+https://docs.google.com/presentation/d/1Mbl3cYsfXNBd475IFyae746w0vCzz4pNIyQXhmJseMc/edit#slide=id.g35f391192_00
