@@ -1,0 +1,3 @@
+module pocRedis {
+	requires jedis;
+}
