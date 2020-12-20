@@ -6,6 +6,7 @@ import poc.listener.MessageListener;
 import poc.listener.TopicListener;
 import poc.listener.UserStatusListener;
 import poc.model.Message;
+import redis.clients.jedis.Jedis;
 
 import javax.swing.*;
 import java.awt.*;
@@ -264,6 +265,9 @@ public class UserListPane extends JPanel implements UserStatusListener, TopicLis
                 }
             }
             if (!b) {
+                Jedis jedis = new Jedis("localhost");
+                jedis.sadd(client.getLogin(), login);
+                jedis.disconnect();
                 conversationsHistoryListModel.addElement(login);
             }
         }

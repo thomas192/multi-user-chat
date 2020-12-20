@@ -1,5 +1,7 @@
 package poc;
 
+import redis.clients.jedis.Jedis;
+
 import poc.data.ClientDAO;
 
 import javax.swing.*;
@@ -9,6 +11,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Set;
+import java.util.List;
 
 public class LoginWindow extends JFrame {
 
@@ -66,7 +71,20 @@ public class LoginWindow extends JFrame {
                 // Create user pane that takes the client
                 UserListPane userListPane = new UserListPane(client);
                 userListPane.setTopicsFollowed(clientDAO.fetchTopicsFollowed(login));
-                userListPane.setConversationsHistory((clientDAO.fetchConversationsHistory(login)));
+
+                Jedis jedis = new Jedis("localhost");
+                // Get conversations history from redis
+                Set<String> res = jedis.smembers(login);
+                if (res.size() == 0) {
+                    // Initialize conversations history in redis
+                    for (String l : clientDAO.fetchConversationsHistory(login)) {
+                        jedis.sadd(login, l);
+                    }
+                    res = jedis.smembers(login);
+                }
+                jedis.disconnect();
+                userListPane.setConversationsHistory(new ArrayList<>(res));
+                // userListPane.setConversationsHistory(clientDAO.fetchConversationsHistory(login));
                 userListPane.display();
                 // Create the user list window
                 JFrame userListWindow = new JFrame("User List");

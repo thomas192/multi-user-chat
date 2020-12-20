@@ -20,9 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b9cfb25b-a3e2-4484-a8e1-1aca98d31f35" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/jedis_3_4_0.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatClient/ChatClient.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ChatClient/ChatClient.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatClient/src/poc/LoginWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChatClient/src/poc/LoginWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ChatClient/src/poc/UserListPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChatClient/src/poc/UserListPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChatClient/poc/UserListPane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatClient/poc/UserListPane.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/POCMultiUserChat.iml" beforeDir="false" afterPath="$PROJECT_DIR$/POCMultiUserChat.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,9 +56,10 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/ChatClient/src/com/muc" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/projet-social-2020-chat-1a260dc12335f1451e9e7c409f5342f6d9a7f48e/POCMultiUserChat" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Java/jedis-3.4.0.jar" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -88,7 +92,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginWindow" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+    <configuration name="LoginWindow" type="Application" factoryName="Application" singleton="false" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="poc.LoginWindow" />
       <module name="ChatClient" />
       <extension name="coverage">
@@ -128,15 +132,14 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.ServerMain" />
       <item itemvalue="Application.LoginWindow" />
+      <item itemvalue="Application.ServerMain" />
       <item itemvalue="Application.ChatClient" />
       <item itemvalue="Application.ServerDAO" />
       <item itemvalue="Application.ClientDAO" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.LoginWindow" />
         <item itemvalue="Application.ServerMain" />
         <item itemvalue="Application.ClientDAO" />
         <item itemvalue="Application.ServerDAO" />
