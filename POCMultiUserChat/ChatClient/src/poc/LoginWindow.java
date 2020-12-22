@@ -39,7 +39,19 @@ public class LoginWindow extends JFrame {
         client.connect();
 
         // Set behavior on close
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                try {
+                    client.logoff();
+                    dispose();
+                    System.exit(0);
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+            }
+        });
         // Create new layout
         JPanel p = new JPanel();
         p.setLayout(new BoxLayout(p, BoxLayout.Y_AXIS));

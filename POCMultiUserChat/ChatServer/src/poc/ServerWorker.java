@@ -188,7 +188,7 @@ public class ServerWorker extends Thread {
         String msg = "offline " + login + "\n";
         for (ServerWorker worker : workerList) {
             // Check if we are not sending our own presence
-            if (!login.equals(worker.getLogin())) {
+            if (login != null && !login.equals(worker.getLogin())) {
                 // Notify client
                 worker.send(msg);
             }

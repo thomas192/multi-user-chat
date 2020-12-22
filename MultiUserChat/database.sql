@@ -20,10 +20,10 @@ SET row_security = off;
 -- Name: POCMultiUserChat; Type: DATABASE; Schema: -; Owner: postgres
 --
 
-CREATE DATABASE "POCMultiUserChat" WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'French_France.1252' LC_CTYPE = 'French_France.1252';
+CREATE DATABASE "MultiUserChat" WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'French_France.1252' LC_CTYPE = 'French_France.1252';
 
 
-ALTER DATABASE "POCMultiUserChat" OWNER TO postgres;
+ALTER DATABASE "MultiUserChat" OWNER TO postgres;
 
 \connect "POCMultiUserChat"
 
@@ -96,44 +96,28 @@ ALTER TABLE public.topicsfollowed OWNER TO postgres;
 -- Data for Name: chatuser; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.chatuser VALUES ('thomas', 'thomas');
-INSERT INTO public.chatuser VALUES ('bob', 'bob');
-INSERT INTO public.chatuser VALUES ('ted', 'ted');
+INSERT INTO public.chatuser VALUES ('Thomas', 'Thomas');
+INSERT INTO public.chatuser VALUES ('Yann', 'Yann');
+INSERT INTO public.chatuser VALUES ('Lucas', 'Lucas');
+INSERT INTO public.chatuser VALUES ('Nadine', 'Nadine');
 
 
 --
 -- Data for Name: privatemessage; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.privatemessage VALUES ('ted', 'bob', 'salut');
 
 
 --
 -- Data for Name: topicmessage; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.topicmessage VALUES ('#fete', 'hi', 'bob');
-INSERT INTO public.topicmessage VALUES ('#fete', 'hi', 'thomas');
-INSERT INTO public.topicmessage VALUES ('#fete', '!!!', 'ted');
-INSERT INTO public.topicmessage VALUES ('#fete', 'Hi there', 'ted');
-INSERT INTO public.topicmessage VALUES ('#fete', '?', 'ted');
-INSERT INTO public.topicmessage VALUES ('#fete', 'any1 here ?', 'ted');
-INSERT INTO public.topicmessage VALUES ('#fete', 'OK..', 'ted');
-INSERT INTO public.topicmessage VALUES ('#fete', 'so sad', 'ted');
-INSERT INTO public.topicmessage VALUES ('#fete', 'im here', 'bob');
-INSERT INTO public.topicmessage VALUES ('#fete', 'cool!', 'ted');
-INSERT INTO public.topicmessage VALUES ('#noel', 'Hey', 'ted');
-INSERT INTO public.topicmessage VALUES ('#noel', 'How are you ?', 'bob');
-INSERT INTO public.topicmessage VALUES ('#noel', 'I''m good ', 'ted');
 
 
 --
 -- Data for Name: topicsfollowed; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.topicsfollowed VALUES ('thomas', '{#fete}');
-INSERT INTO public.topicsfollowed VALUES ('ted', '{#noel,#fete}');
-INSERT INTO public.topicsfollowed VALUES ('bob', '{#noel,#fete}');
 
 
 --
