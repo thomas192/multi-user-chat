@@ -19,7 +19,20 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9cfb25b-a3e2-4484-a8e1-1aca98d31f35" name="Default Changelist" comment="" />
+    <list default="true" id="b9cfb25b-a3e2-4484-a8e1-1aca98d31f35" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatClient/src/poc/ChatClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChatClient/src/poc/ChatClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatClient/src/poc/LoginWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChatClient/src/poc/LoginWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatClient/src/poc/MainPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChatClient/src/poc/MainPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatClient/src/poc/data/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChatClient/src/poc/data/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatServer/src/poc/data/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChatServer/src/poc/data/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ChatClient/poc/ChatClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatClient/poc/ChatClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ChatClient/poc/LoginWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatClient/poc/LoginWindow.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ChatClient/poc/MainPane$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatClient/poc/MainPane$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ChatClient/poc/MainPane$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatClient/poc/MainPane$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ChatClient/poc/MainPane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatClient/poc/MainPane.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ChatClient/poc/data/Database.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatClient/poc/data/Database.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -133,10 +146,10 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ChatClient" />
         <item itemvalue="Application.ServerMain" />
         <item itemvalue="Application.ClientDAO" />
         <item itemvalue="Application.ServerDAO" />
-        <item itemvalue="Application.ChatClient" />
       </list>
     </recent_temporary>
   </component>
