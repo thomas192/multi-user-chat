@@ -52,7 +52,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/ChatClient/src/com/muc" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Java/jedis-3.4.0.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../MultiUserChat" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />

@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ChatClient/ChatClient.iml" filepath="$PROJECT_DIR$/ChatClient/ChatClient.iml" />
       <module fileurl="file://$PROJECT_DIR$/ChatServer/ChatServer.iml" filepath="$PROJECT_DIR$/ChatServer/ChatServer.iml" />
-      <module fileurl="file://$PROJECT_DIR$/POCMultiUserChat.iml" filepath="$PROJECT_DIR$/POCMultiUserChat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MultiUserChat.iml" filepath="$PROJECT_DIR$/MultiUserChat.iml" />
     </modules>
   </component>
 </project>
