@@ -12,7 +12,7 @@ public class Database {
             e.printStackTrace();
         }
         try {
-            connection = DriverManager.getConnection("jdbc:postgresql://tilodry.fr:5432/POCMultiUserChat", "postgres", "postgres");
+            connection = DriverManager.getConnection("jdbc:postgresql://tilodry.fr:5432/MultiUserChat", "postgres", "postgres");
         } catch (SQLException e) {
             e.printStackTrace();
         }
