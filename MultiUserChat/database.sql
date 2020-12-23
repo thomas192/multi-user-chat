@@ -118,7 +118,10 @@ INSERT INTO public.chatuser VALUES ('Nadine', 'Nadine');
 -- Data for Name: topicsfollowed; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-
+INSERT INTO public.topicsfollowed VALUES ('Thomas', '{}');
+INSERT INTO public.topicsfollowed VALUES ('Yann', '{}');
+INSERT INTO public.topicsfollowed VALUES ('Lucas', '{}');
+INSERT INTO public.topicsfollowed VALUES ('Nadine', '{}');
 
 --
 -- Name: chatuser User_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
