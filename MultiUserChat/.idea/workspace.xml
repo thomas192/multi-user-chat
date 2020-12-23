@@ -21,8 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b9cfb25b-a3e2-4484-a8e1-1aca98d31f35" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChatClient/src/app/data/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChatClient/src/app/data/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChatServer/src/app/data/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChatServer/src/app/data/Database.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

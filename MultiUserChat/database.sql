@@ -17,7 +17,7 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- Name: POCMultiUserChat; Type: DATABASE; Schema: -; Owner: postgres
+-- Name: MultiUserChat; Type: DATABASE; Schema: -; Owner: postgres
 --
 
 CREATE DATABASE "MultiUserChat" WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'French_France.1252' LC_CTYPE = 'French_France.1252';
@@ -25,7 +25,7 @@ CREATE DATABASE "MultiUserChat" WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_C
 
 ALTER DATABASE "MultiUserChat" OWNER TO postgres;
 
-\connect "POCMultiUserChat"
+\connect "MultiUserChat"
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
