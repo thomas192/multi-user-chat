@@ -1,7 +1,7 @@
 package app;
 
-import app.listener.MessageListener;
 import org.apache.commons.lang3.StringUtils;
+import app.listener.MessageListener;
 import app.model.Message;
 
 import javax.swing.*;
@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 public class MessagePane extends JPanel implements MessageListener {
 
@@ -30,7 +31,7 @@ public class MessagePane extends JPanel implements MessageListener {
     /** Login of user the chat client is going to send messages to */
     private final String login;
 
-    public MessagePane(ChatClient client, String login) {
+    public MessagePane(ChatClient client, String login, Map<String, List<Message>> privateMessagesHistory, Map<String, List<Message>> topicMessagesHistory) {
         this.client = client;
         this.login = login;
         // When the other user sends the client a message
@@ -51,6 +52,17 @@ public class MessagePane extends JPanel implements MessageListener {
                     client.msg(login, message);
                     // Add the message to the conversation
                     messageListModel.addElement("You: " + message);
+                    // Check if recipient is a user
+                    if(login.charAt(0) != '#') {
+                        // Check if caching for this topic has been initialized
+                        if (privateMessagesHistory.containsKey(login)) {
+                            // Cache topic message
+                            Message msg = new Message();
+                            msg.setBody(message);
+                            msg.setSender(client.getLogin());
+                            privateMessagesHistory.get(login).add(msg);
+                        }
+                    }
                     // Reset text field
                     messageField.setText("");
                 } catch (IOException ioException) {

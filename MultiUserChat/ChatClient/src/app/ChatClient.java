@@ -1,9 +1,9 @@
 package app;
 
+import org.apache.commons.lang3.StringUtils;
 import app.listener.MessageListener;
 import app.listener.TopicListener;
 import app.listener.UserStatusListener;
-import org.apache.commons.lang3.StringUtils;
 
 import java.io.*;
 import java.net.Socket;
@@ -43,7 +43,7 @@ public class ChatClient {
     }
 
     public static void main(String[] args) throws IOException {
-        ChatClient client = new ChatClient("tilodry.fr", 8818);
+        ChatClient client = new ChatClient("localhost", 8818);
 
         // Register listeners
         client.addUserStatusListener(new UserStatusListener() {

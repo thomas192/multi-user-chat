@@ -17,15 +17,15 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- Name: MultiUserChat; Type: DATABASE; Schema: -; Owner: postgres
+-- Name: POCMultiUserChat; Type: DATABASE; Schema: -; Owner: postgres
 --
 
-CREATE DATABASE "MultiUserChat" WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'French_France.1252' LC_CTYPE = 'French_France.1252';
+CREATE DATABASE "POCMultiUserChat" WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'French_France.1252' LC_CTYPE = 'French_France.1252';
 
 
-ALTER DATABASE "MultiUserChat" OWNER TO postgres;
+ALTER DATABASE "POCMultiUserChat" OWNER TO postgres;
 
-\connect "MultiUserChat"
+\connect "POCMultiUserChat"
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -97,9 +97,8 @@ ALTER TABLE public.topicsfollowed OWNER TO postgres;
 --
 
 INSERT INTO public.chatuser VALUES ('Thomas', 'Thomas');
-INSERT INTO public.chatuser VALUES ('Yann', 'Yann');
-INSERT INTO public.chatuser VALUES ('Lucas', 'Lucas');
-INSERT INTO public.chatuser VALUES ('Nadine', 'Nadine');
+INSERT INTO public.chatuser VALUES ('Bob', 'Bob');
+INSERT INTO public.chatuser VALUES ('Ted', 'Ted');
 
 
 --
@@ -107,21 +106,19 @@ INSERT INTO public.chatuser VALUES ('Nadine', 'Nadine');
 --
 
 
-
 --
 -- Data for Name: topicmessage; Type: TABLE DATA; Schema: public; Owner: postgres
 --
-
 
 
 --
 -- Data for Name: topicsfollowed; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.topicsfollowed VALUES ('Thomas', '{}');
-INSERT INTO public.topicsfollowed VALUES ('Yann', '{}');
-INSERT INTO public.topicsfollowed VALUES ('Lucas', '{}');
-INSERT INTO public.topicsfollowed VALUES ('Nadine', '{}');
+INSERT INTO public.topicsfollowed VALUES ('Thomas', '{#welcome}');
+INSERT INTO public.topicsfollowed VALUES ('Ted', '{#welcome}');
+INSERT INTO public.topicsfollowed VALUES ('Bob', '{#welcome}');
+
 
 --
 -- Name: chatuser User_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres

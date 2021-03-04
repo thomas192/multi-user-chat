@@ -21,15 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b9cfb25b-a3e2-4484-a8e1-1aca98d31f35" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../MultiUserChat/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MultiUserChat/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MultiUserChat/ChatClient/src/app/LoginWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MultiUserChat/ChatClient/src/app/LoginWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MultiUserChat/database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../MultiUserChat/database.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MultiUserChat/redis-server.exe" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChatClient/src/poc/LoginWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChatClient/src/poc/LoginWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChatServer/src/poc/ServerWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChatServer/src/poc/ServerWorker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChatClient/poc/LoginWindow$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatClient/poc/LoginWindow$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChatClient/poc/LoginWindow$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatClient/poc/LoginWindow$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChatClient/poc/LoginWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatClient/poc/LoginWindow.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +55,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/ChatClient/src/com/muc" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../application-en-temps-reel-de-chat/MultiUserChat" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />

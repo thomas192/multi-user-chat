@@ -1,7 +1,8 @@
 package app;
 
-import app.data.ClientDAO;
 import redis.clients.jedis.Jedis;
+
+import app.data.ClientDAO;
 
 import javax.swing.*;
 import java.awt.*;
@@ -33,7 +34,7 @@ public class LoginWindow extends JFrame {
     public LoginWindow() {
         super("Login");
 
-        this.client = new ChatClient("tilodry.fr", 8818);
+        this.client = new ChatClient("localhost", 8818);
         // Connect to the server
         client.connect();
 
@@ -82,7 +83,7 @@ public class LoginWindow extends JFrame {
                 MainPane mainPane = new MainPane(client);
                 mainPane.setTopicsFollowed(clientDAO.fetchTopicsFollowed(login));
 
-                Jedis jedis = new Jedis("tilodry.fr");
+                Jedis jedis = new Jedis("localhost");
                 // Get conversations history from redis
                 Set<String> res = jedis.smembers(login);
                 if (res.size() == 0) {

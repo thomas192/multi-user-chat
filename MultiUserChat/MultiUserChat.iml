@@ -7,5 +7,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="commons-lang3-3" level="project" />
+    <orderEntry type="library" name="postgresql-42.1.4" level="project" />
+    <orderEntry type="library" name="jedis-3.4.0" level="project" />
   </component>
 </module>

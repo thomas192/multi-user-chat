@@ -1,10 +1,10 @@
 package app;
 
+import org.apache.commons.lang3.StringUtils;
 import app.data.ClientDAO;
 import app.listener.MessageListener;
 import app.listener.TopicListener;
 import app.listener.UserStatusListener;
-import org.apache.commons.lang3.StringUtils;
 import app.model.Message;
 import redis.clients.jedis.Jedis;
 
@@ -131,7 +131,7 @@ public class MainPane extends JPanel implements UserStatusListener, TopicListene
                     String topic = topicList.getSelectedValue();
                     if (topic != null) {
                         // Create a message pane for that topic
-                        MessagePane messagePane = new MessagePane(client, topic);
+                        MessagePane messagePane = new MessagePane(client, topic, privateMessagesHistory, topicMessagesHistory);
                         // Cache messages history
                         if (!topicMessagesHistory.containsKey(topic)) {
                             topicMessagesHistory.put(topic, clientDAO.fetchTopicMessagesHistory(topic));
@@ -160,7 +160,7 @@ public class MainPane extends JPanel implements UserStatusListener, TopicListene
                     String login = userList.getSelectedValue();
                     if (login != null) {
                         // Create a message pane for that login
-                        MessagePane messagePane = new MessagePane(client, login);
+                        MessagePane messagePane = new MessagePane(client, login, privateMessagesHistory, topicMessagesHistory);
                         // Cache messages history
                         if (!privateMessagesHistory.containsKey(login)) {
                             privateMessagesHistory.put(login,
@@ -190,10 +190,9 @@ public class MainPane extends JPanel implements UserStatusListener, TopicListene
                     String login = conversationsHistoryList.getSelectedValue();
                     if (login != null) {
                         // Create a message pane for that login
-                        MessagePane messagePane = new MessagePane(client, login);
+                        MessagePane messagePane = new MessagePane(client, login, privateMessagesHistory, topicMessagesHistory);
                         // Cache messages history
                         if (!privateMessagesHistory.containsKey(login)) {
-                            System.out.println("initialisation du cache");
                             privateMessagesHistory.put(login,
                                     clientDAO.fetchPrivateMessagesHistory(client.getLogin(), login));
                         }
@@ -266,7 +265,7 @@ public class MainPane extends JPanel implements UserStatusListener, TopicListene
                 }
             }
             if (!b) {
-                Jedis jedis = new Jedis("tilodry.fr");
+                Jedis jedis = new Jedis("localhost");
                 jedis.sadd(client.getLogin(), login);
                 jedis.disconnect();
                 conversationsHistoryListModel.addElement(login);
@@ -286,6 +285,7 @@ public class MainPane extends JPanel implements UserStatusListener, TopicListene
 
     @Override
     public void onMessage(String fromLogin, String msgBody) {
+        System.out.println(fromLogin + ": " + msgBody);
         // Check if recipient is a topic
         if(fromLogin.charAt(0) == '#') {
             String[] tokens = StringUtils.split(fromLogin, ":");
