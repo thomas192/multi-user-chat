@@ -12,15 +12,15 @@ Une fois connecté, l'utilisateur arrive sur un écran d'accueil qui recense les
 
 ### Ecran de connexion
 
-<img src="LoginWindow.png" style="zoom:80%;" />
+<img src="image/LoginWindow.png" style="zoom:80%;" />
 
 ### Ecran d'accueil
 
-<img src="MainPane.png" style="zoom:80%;" />
+<img src="image/MainPane.png" style="zoom:80%;" />
 
 ### Ecran de conversation
 
-<img src="MessagePane.png" style="zoom:80%;" />
+<img src="image/MessagePane.png" style="zoom:80%;" />
 
 ## Rapport
 

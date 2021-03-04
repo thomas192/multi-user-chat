@@ -25,38 +25,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b9cfb25b-a3e2-4484-a8e1-1aca98d31f35" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/commons_lang3_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/commons_lang3_3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/jedis_3_4_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/jedis_3_4_0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/postgresql_42_1_4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/postgresql_42_1_4.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChatClient/src/app/ChatClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChatClient/src/app/ChatClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChatClient/src/app/LoginWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChatClient/src/app/LoginWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChatClient/src/app/MainPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChatClient/src/app/MainPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChatClient/src/app/MessagePane.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChatClient/src/app/MessagePane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChatClient/src/app/data/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChatClient/src/app/data/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChatServer/src/app/data/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChatServer/src/app/data/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MultiUserChat.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MultiUserChat.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChatClient/app/ChatClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatClient/app/ChatClient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChatClient/app/LoginWindow$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatClient/app/LoginWindow$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChatClient/app/LoginWindow$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatClient/app/LoginWindow$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChatClient/app/LoginWindow$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatClient/app/LoginWindow$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChatClient/app/LoginWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatClient/app/LoginWindow.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChatClient/app/MainPane$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatClient/app/MainPane$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChatClient/app/MainPane$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatClient/app/MainPane$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChatClient/app/MainPane$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatClient/app/MainPane$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChatClient/app/MainPane$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatClient/app/MainPane$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChatClient/app/MainPane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatClient/app/MainPane.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChatClient/app/MessagePane$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatClient/app/MessagePane$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChatClient/app/MessagePane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatClient/app/MessagePane.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChatClient/app/data/Database.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatClient/app/data/Database.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChatServer/poc/Server.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChatServer/poc/ServerMain.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChatServer/poc/ServerWorker.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChatServer/poc/data/Database.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChatServer/poc/data/ServerDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChatServer/poc/protocols.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../POCMultiUserChat/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../POCMultiUserChat/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../POCRedis/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../POCRedis/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../POCRedis/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../POCRedis/bin/POCRedis/pocRedis.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../POCRedis/bin/module-info.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../POCRedis/src/POCRedis/pocRedis.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../POCRedis/src/module-info.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
