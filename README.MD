@@ -22,6 +22,6 @@ Une fois connecté, l'utilisateur arrive sur un écran d'accueil qui recense les
 
 <img src="image/MessagePane.png" style="zoom:80%;" />
 
-## Rapport
+## Démonstration vidéo
 
-https://docs.google.com/presentation/d/1Mbl3cYsfXNBd475IFyae746w0vCzz4pNIyQXhmJseMc/edit#slide=id.g35f391192_00
+https://youtu.be/GikFLR_wt-w
